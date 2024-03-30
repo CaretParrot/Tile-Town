@@ -102,6 +102,8 @@ let tileTown = {
                 }
             }
         }
+
+        setupTree();
     },
     pieces: {
         white: {
@@ -118,8 +120,6 @@ let tileTown = {
 }
 
 tileTown.updateSizing();
-
-setupTree();
 
 tileTown.createBoard();
 tileTown.addPieces();
