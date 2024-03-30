@@ -51,6 +51,8 @@ let tileTown = {
         return file;
     },
     updateSizing: function () {
+        console.log("Test");
+
         if (window.innerWidth < window.innerHeight) {
             idTree.chessBoard.setAttribute("width", fullWidth);
             idTree.chessBoard.setAttribute("height", fullWidth);
@@ -120,7 +122,6 @@ let tileTown = {
 }
 
 tileTown.updateSizing();
-
 tileTown.createBoard();
 tileTown.addPieces();
 
