@@ -10,7 +10,7 @@ let tileTown = {
         darkSquareColor: "hsl(240, 50%, 50%)"
     },
     Piece: function (href, square, newId, newClass) {
-        idTree.chessBoard.innerHTML += `<image class="${newClass}" href="${href}" id="${newId}" width="${this.board.pieceWidth}" height="${this.board.pieceWidth}"/>`;
+        idTree.chessBoard.innerHTML += `<image class="${newClass}" href="${href}" id="${newId}" width="${tileTown.board.pieceWidth}" height="${tileTown.board.pieceWidth}"/>`;
         this.movePiece(id(newId), square);
         this.coordinate = square;
     },
@@ -51,8 +51,6 @@ let tileTown = {
         return file;
     },
     updateSizing: function () {
-        console.log("Test");
-
         if (window.innerWidth < window.innerHeight) {
             idTree.chessBoard.setAttribute("width", fullWidth);
             idTree.chessBoard.setAttribute("height", fullWidth);
@@ -63,9 +61,9 @@ let tileTown = {
             this.board.size = +idTree.chessBoard.getAttribute("height");
         }
 
-        this.board.squareWidth = +this.board.size / 8;
-        this.board.pieceWidth = +this.board.squareWidth;
-        this.board.piecePadding = 0;
+        tileTown.board.squareWidth = +this.board.size / 8;
+        tileTown.board.pieceWidth = +this.board.squareWidth;
+        tileTown.board.piecePadding = 0;
     },
     addPieces: function () {
         for (let i = 0; i < 8; i++) {
