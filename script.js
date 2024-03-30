@@ -123,6 +123,6 @@ tileTown.updateSizing();
 tileTown.createBoard();
 tileTown.addPieces();
 
-document.body.onresize = function (event) {
+document.documentElement.onresize = function (event) {
     tileTown.updateSizing();
 }
