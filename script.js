@@ -123,7 +123,19 @@ let tileTown = {
         id(pieceId).remove();
     },
     removeAllPieces: function () {
-        delete tileTown.pieces[piece];
+        tileTown.pieces = {
+            white: {
+                pawns: {
+
+                }
+            },
+            black: {
+                pawns: {
+
+                }
+            }
+        }
+
         let allPieces = document.getElementsByClassName("piece");
         for (let i = 0; i < allPieces.length; i++) {
             allPieces[i].remove();
