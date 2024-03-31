@@ -118,8 +118,7 @@ let tileTown = {
         }
     },
     removePiece: function (piece, pieceId) {
-        delete tileTown.pieces.white;
-        delete tileTown.pieces.black;
+        delete tileTown.pieces[piece];
         id(pieceId).remove();
     },
     removeAllPieces: function () {
