@@ -68,7 +68,7 @@ let tileTown = {
     addPieces: function () {
         for (let i = 0; i < 8; i++) {
             let newFile = this.numberToFile(i);
-            tileTown.pieces.white.pawns[newFile] = new tileTown.Piece("assets/pawn-w.svg", `${newFile}2`, `whitePawn${newFile.toUpperCase()}`, "white pawn");
+            tileTown.pieces.white.pawns[newFile] = new tileTown.Piece("assets/pawn-w.svg", `${newFile}2`, `whitePawn${newFile.toUpperCase()}`, "white pawn piece");
             tileTown.pieces.black.pawns[newFile] = new tileTown.Piece("assets/pawn-b.svg", `${newFile}7`, `blackPawn${newFile.toUpperCase()}`, "black pawn");
         }
         
