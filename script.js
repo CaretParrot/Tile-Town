@@ -134,4 +134,4 @@ document.documentElement.onresize = function (event) {
     tileTown.updateSizing();
 }
 
-tileTown.removePiece(white.rookQ);
+tileTown.removePiece(tileTown.pieces.white.rookQ, "whiteRookQ");
