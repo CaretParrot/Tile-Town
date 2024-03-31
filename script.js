@@ -117,6 +117,10 @@ let tileTown = {
             }
         }
     },
+    removePiece: function (piece, pieceId) {
+        delete tileTown.pieces[piece];
+        id(pieceId).remove();
+    },
     setPosition: function (fen) {
         tileTown.pieces = {}
     }
@@ -130,4 +134,4 @@ document.documentElement.onresize = function (event) {
     tileTown.updateSizing();
 }
 
-tileTown.setPosition("idk");
+tileTown.removePiece(white.rookQ);
