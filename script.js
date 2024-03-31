@@ -116,6 +116,9 @@ let tileTown = {
 
             }
         }
+    },
+    setPosition: function (fen) {
+        tileTown.pieces = {}
     }
 }
 
@@ -126,3 +129,5 @@ tileTown.addPieces();
 document.documentElement.onresize = function (event) {
     tileTown.updateSizing();
 }
+
+tileTown.setPosition("idk");
