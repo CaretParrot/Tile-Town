@@ -72,22 +72,22 @@ let tileTown = {
             tileTown.pieces.black.pawns[newFile] = new tileTown.Piece("assets/pawn-b.svg", `${newFile}7`, `blackPawn${newFile.toUpperCase()}`, "black pawn");
         }
         
-        tileTown.pieces.white.rookQ = new tileTown.Piece("assets/rook-w.svg", `a1`, `whiteRookQ`, "white rook");
-        tileTown.pieces.white.rookK = new tileTown.Piece("assets/rook-w.svg", `h1`, `whiteRookK`, "white rook");
-        tileTown.pieces.black.rookQ = new tileTown.Piece("assets/rook-b.svg", `a8`, `blackRookQ`, "black rook");
-        tileTown.pieces.black.rookK = new tileTown.Piece("assets/rook-b.svg", `h8`, `blackRookK`, "black rook");
-        tileTown.pieces.white.knightQ = new tileTown.Piece("assets/knight-w.svg", `b1`, `whiteKnightQ`, "white knight");
-        tileTown.pieces.white.knightK = new tileTown.Piece("assets/knight-w.svg", `g1`, `whiteKnightK`, "white knight");
-        tileTown.pieces.black.knightQ = new tileTown.Piece("assets/knight-b.svg", `b8`, `blackKnightQ`, "black knight");
-        tileTown.pieces.black.knightK = new tileTown.Piece("assets/knight-b.svg", `g8`, `blackKnightK`, "black knight");
-        tileTown.pieces.white.bishopQ = new tileTown.Piece("assets/bishop-w.svg", `c1`, `whiteBishopQ`, "white bishop");
-        tileTown.pieces.white.bishopK = new tileTown.Piece("assets/bishop-w.svg", `f1`, `whiteBishopK`, "white bishop");
-        tileTown.pieces.black.bishopQ = new tileTown.Piece("assets/bishop-b.svg", `c8`, `blackBishopQ`, "black bishop");
-        tileTown.pieces.black.bishopK = new tileTown.Piece("assets/bishop-b.svg", `f8`, `blackBishopK`, "black bishop");
-        tileTown.pieces.white.queen = new tileTown.Piece("assets/queen-w.svg", `d1`, `whiteQueen`, "white queen");
-        tileTown.pieces.white.king = new tileTown.Piece("assets/king-w.svg", `e1`, `whiteKing`, "white king");
-        tileTown.pieces.black.queen = new tileTown.Piece("assets/queen-b.svg", `d8`, `blackQueen`, "black queen");
-        tileTown.pieces.black.king = new tileTown.Piece("assets/king-b.svg", `e8`, `blackKing`, "black king");
+        tileTown.pieces.white.rookQ = new tileTown.Piece("assets/rook-w.svg", `a1`, `whiteRookQ`, "white rook piece");
+        tileTown.pieces.white.rookK = new tileTown.Piece("assets/rook-w.svg", `h1`, `whiteRookK`, "white rook piece");
+        tileTown.pieces.black.rookQ = new tileTown.Piece("assets/rook-b.svg", `a8`, `blackRookQ`, "black rook piece");
+        tileTown.pieces.black.rookK = new tileTown.Piece("assets/rook-b.svg", `h8`, `blackRookK`, "black rook piece");
+        tileTown.pieces.white.knightQ = new tileTown.Piece("assets/knight-w.svg", `b1`, `whiteKnightQ`, "white knight piece");
+        tileTown.pieces.white.knightK = new tileTown.Piece("assets/knight-w.svg", `g1`, `whiteKnightK`, "white knight piece");
+        tileTown.pieces.black.knightQ = new tileTown.Piece("assets/knight-b.svg", `b8`, `blackKnightQ`, "black knight piece");
+        tileTown.pieces.black.knightK = new tileTown.Piece("assets/knight-b.svg", `g8`, `blackKnightK`, "black knight piece");
+        tileTown.pieces.white.bishopQ = new tileTown.Piece("assets/bishop-w.svg", `c1`, `whiteBishopQ`, "white bishop piece");
+        tileTown.pieces.white.bishopK = new tileTown.Piece("assets/bishop-w.svg", `f1`, `whiteBishopK`, "white bishop piece");
+        tileTown.pieces.black.bishopQ = new tileTown.Piece("assets/bishop-b.svg", `c8`, `blackBishopQ`, "black bishop piece");
+        tileTown.pieces.black.bishopK = new tileTown.Piece("assets/bishop-b.svg", `f8`, `blackBishopK`, "black bishop piece");
+        tileTown.pieces.white.queen = new tileTown.Piece("assets/queen-w.svg", `d1`, `whiteQueen`, "white queen piece");
+        tileTown.pieces.white.king = new tileTown.Piece("assets/king-w.svg", `e1`, `whiteKing`, "white king piece");
+        tileTown.pieces.black.queen = new tileTown.Piece("assets/queen-b.svg", `d8`, `blackQueen`, "black queen piece");
+        tileTown.pieces.black.king = new tileTown.Piece("assets/king-b.svg", `e8`, `blackKing`, "black king piece");
     
         setupTree();
     },
@@ -118,11 +118,16 @@ let tileTown = {
         }
     },
     removePiece: function (piece, pieceId) {
-        delete tileTown.pieces[piece];
+        delete tileTown.pieces.white;
+        delete tileTown.pieces.black;
         id(pieceId).remove();
     },
-    setPosition: function (fen) {
-        tileTown.pieces = {}
+    removeAllPieces: function () {
+        delete tileTown.pieces[piece];
+        let allPieces = document.getElementsByClassName("piece");
+        for (let i = 0; i < allPieces.length; i++) {
+            allPieces[i].remove();
+        }
     }
 }
 
@@ -130,8 +135,8 @@ tileTown.updateSizing();
 tileTown.createBoard();
 tileTown.addPieces();
 
+tileTown.removeAllPieces();
+
 document.documentElement.onresize = function (event) {
     tileTown.updateSizing();
 }
-
-tileTown.removePiece(tileTown.pieces.white.rookQ, "whiteRookQ");
