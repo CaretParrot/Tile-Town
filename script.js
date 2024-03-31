@@ -137,7 +137,8 @@ let tileTown = {
 
         let allPieces = document.getElementsByClassName("piece");
         console.log(allPieces);
-        for (let i = allPieces.length; i >= 0; i--) {
+        
+        for (let i = allPieces.length - 1; i > -1; i--) {
             allPieces[i].remove();
         }
     }
