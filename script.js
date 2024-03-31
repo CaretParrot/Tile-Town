@@ -137,7 +137,7 @@ let tileTown = {
 
         let allPieces = document.getElementsByClassName("piece");
         console.log(allPieces);
-        
+
         for (let i = allPieces.length - 1; i > -1; i--) {
             allPieces[i].remove();
         }
@@ -147,7 +147,7 @@ let tileTown = {
 tileTown.updateSizing();
 tileTown.createBoard();
 tileTown.addAllPieces();
-tileTown.removeAllPieces();
+tileTown.movePiece(idTree.whiteKnightK, "f3");
 
 document.documentElement.onresize = function (event) {
     tileTown.updateSizing();
