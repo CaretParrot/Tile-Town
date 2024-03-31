@@ -65,7 +65,7 @@ let tileTown = {
         tileTown.board.pieceWidth = +tileTown.board.squareWidth;
         tileTown.board.piecePadding = 0;
     },
-    addPieces: function () {
+    addAllPieces: function () {
         for (let i = 0; i < 8; i++) {
             let newFile = this.numberToFile(i);
             tileTown.pieces.white.pawns[newFile] = new tileTown.Piece("assets/pawn-w.svg", `${newFile}2`, `whitePawn${newFile.toUpperCase()}`, "white pawn piece");
@@ -137,7 +137,7 @@ let tileTown = {
 
         let allPieces = document.getElementsByClassName("piece");
         console.log(allPieces);
-        for (let i = 0; i < allPieces.length; i++) {
+        for (let i = 0; i < allPieces.length * 2; i++) {
             allPieces[i].remove();
         }
     }
@@ -145,8 +145,7 @@ let tileTown = {
 
 tileTown.updateSizing();
 tileTown.createBoard();
-tileTown.addPieces();
-
+tileTown.addAllPieces();
 tileTown.removeAllPieces();
 
 document.documentElement.onresize = function (event) {
