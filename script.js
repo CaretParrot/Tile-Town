@@ -92,10 +92,12 @@ let tileTown = {
         tileTown.pieces.black.bishops.count = 2;
         tileTown.pieces.white.queens["1"] = new tileTown.Piece("assets/queen-w.svg", `d1`, `whiteQueen1`, "white queen piece");
         tileTown.pieces.white.queens.count = 1;
-        tileTown.pieces.white.king = new tileTown.Piece("assets/king-w.svg", `e1`, `whiteKing`, "white king piece");
+        tileTown.pieces.white.kings["1"] = new tileTown.Piece("assets/king-w.svg", `e1`, `whiteKing`, "white king piece");
+        tileTown.pieces.white.kings.count = 1;
         tileTown.pieces.black.queens["1"] = new tileTown.Piece("assets/queen-b.svg", `d8`, `blackQueen1`, "black queen piece");
         tileTown.pieces.black.queens.count = 1;
-        tileTown.pieces.black.king = new tileTown.Piece("assets/king-b.svg", `e8`, `blackKing`, "black king piece");
+        tileTown.pieces.black.kings["1"] = new tileTown.Piece("assets/king-b.svg", `e8`, `blackKing`, "black king piece");
+        tileTown.pieces.black.kings.count = 1;
 
         setupTree();
     },
@@ -129,6 +131,9 @@ let tileTown = {
             },
             rooks: {
                 count: 0
+            },
+            kings: {
+                count: 0
             }
         },
         black: {
@@ -145,6 +150,9 @@ let tileTown = {
                 count: 0
             },
             rooks: {
+                count: 0
+            },
+            kings: {
                 count: 0
             }
         }
@@ -170,6 +178,9 @@ let tileTown = {
                 },
                 rooks: {
                     count: 0
+                },
+                kings: {
+                    count: 0
                 }
             },
             black: {
@@ -187,12 +198,14 @@ let tileTown = {
                 },
                 rooks: {
                     count: 0
+                },
+                kings: {
+                    count: 0
                 }
             }
         }
 
         let allPieces = document.getElementsByClassName("piece");
-        console.log(allPieces);
 
         for (let i = allPieces.length - 1; i > -1; i--) {
             allPieces[i].remove();
@@ -200,16 +213,38 @@ let tileTown = {
     },
     parseFen: function (fen) {
         tileTown.removeAllPieces();
-        let file = "a";
-        let rank = "8";
+        let fileNumber = 0;
+        let rank = 8;
         for (let i = 0; i < fen.length; i++) {
+            let fileName = tileTown.numberToFile(fileNumber);
             switch (fen[i]) {
                 case "r":
                     tileTown.pieces.black.rooks.count += 1;
-                    tileTown.pieces.black.rooks[(tileTown.pieces.black.rooks.count).toString()] = new tileTown.Piece("assets/rook-b.svg", `${file}${rank}`, `blackRook${(tileTown.pieces.black.rooks.count).toString()}`, "black rook piece");
+                    tileTown.pieces.black.rooks[(tileTown.pieces.black.rooks.count).toString()] = new tileTown.Piece("assets/rook-b.svg", `${fileName}${rank}`, `blackRook${(tileTown.pieces.black.rooks.count).toString()}`, "black rook piece");
+                    break;
+                case "n":
+                    tileTown.pieces.black.knights.count += 1;
+                    tileTown.pieces.black.knights[(tileTown.pieces.black.knights.count).toString()] = new tileTown.Piece("assets/knight-b.svg", `${fileName}${rank}`, `blackKnight${(tileTown.pieces.black.knights.count).toString()}`, "black knight piece");
+                    break;
+                case "b":
+                    tileTown.pieces.black.bishops.count += 1;
+                    tileTown.pieces.black.bishops[(tileTown.pieces.black.bishops.count).toString()] = new tileTown.Piece("assets/bishop-b.svg", `${fileName}${rank}`, `blackBishop${(tileTown.pieces.black.bishops.count).toString()}`, "black bishop piece");
+                    break;
+                case "q":
+                    tileTown.pieces.black.queens.count += 1;
+                    tileTown.pieces.black.queens[(tileTown.pieces.black.queens.count).toString()] = new tileTown.Piece("assets/queen-b.svg", `${fileName}${rank}`, `blackQueen${(tileTown.pieces.black.queens.count).toString()}`, "black queen piece");
+                    break;
+                case "q":
+                    tileTown.pieces.black.kings.count += 1;
+                    tileTown.pieces.black.kings[(tileTown.pieces.black.kings.count).toString()] = new tileTown.Piece("assets/king-b.svg", `${fileName}${rank}`, `blackKing${(tileTown.pieces.black.kings.count).toString()}`, "black king piece");
                     break;
                 default:
                     break;
+            }
+            fileNumber++;
+            if (fileNumber > 7) {
+                fileNumber = 0;
+                rank--;
             }
         }
     }
@@ -219,7 +254,7 @@ tileTown.updateSizing();
 tileTown.createBoard();
 tileTown.addAllPieces();
 
-tileTown.parseFen("r7/8/8/8/8/8/8/8 w - - 0 1");
+tileTown.parseFen("rrbbnnqq/8/8/8/8/8/8/8 w - - 0 1");
 
 document.documentElement.onresize = function (event) {
     tileTown.updateSizing();
