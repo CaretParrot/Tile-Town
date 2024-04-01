@@ -271,7 +271,7 @@ let tileTown = {
                     rank++;
                     break;
                 case /[1-8]/.test(fen[i]):
-                    alert("It's working!");
+                    fileNumber += +fen[i];
                     break;
                 default:
                     break;
