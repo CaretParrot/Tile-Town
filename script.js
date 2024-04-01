@@ -289,7 +289,7 @@ tileTown.updateSizing();
 tileTown.createBoard();
 tileTown.addAllPieces();
 
-tileTown.parseFen("rrbbnnqq/8/8/8/8/8/8/8 w - - 0 1");
+tileTown.parseFen("7p/2b3p1/3R1n2/1K1B4/2P1p1K1/1b3N2/1P1Q4/7k w - - 0 1");
 
 document.documentElement.onresize = function (event) {
     tileTown.updateSizing();
