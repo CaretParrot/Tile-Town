@@ -265,6 +265,13 @@ let tileTown = {
                     tileTown.pieces.white.pawns.count += 1;
                     tileTown.pieces.white.pawns[(tileTown.pieces.white.pawns.count).toString()] = new tileTown.Piece("assets/pawn-b.svg", `${fileName}${rank}`, `whitePawn${(tileTown.pieces.white.pawns.count).toString()}`, "white pawn piece");
                     break;
+                case "/":
+                    fileNumber = -1;
+                    rank++;
+                    break;
+                case /[1-8]/.test(fen[i]):
+                    alert("It's working!");
+                    break;
                 default:
                     break;
             }
