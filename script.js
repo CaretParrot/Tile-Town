@@ -15,41 +15,38 @@ let tileTown = {
         this.coordinate = square;
     },
     movePiece: function (object, square) {
-        console.log(square);
         object.setAttribute("x", +idTree[square].getAttribute("x") + tileTown.board.piecePadding);
         object.setAttribute("y", +idTree[square].getAttribute("y") + tileTown.board.piecePadding);
     },
     numberToFile: function (number) {
-        let file;
         switch (number) {
             case 0:
-                file = "a";
+                return "a";
                 break;
             case 1:
-                file = "b";
+                return "b";
                 break;
             case 2:
-                file = "c";
+                return "c";
                 break;
             case 3:
-                file = "d";
+                return "d";
                 break;
             case 4:
-                file = "e";
+                return "e";
                 break;
             case 5:
-                file = "f";
+                return "f";
                 break;
             case 6:
-                file = "g";
+                return "g";
                 break;
             case 7:
-                file = "h";
+                return "h";
                 break;
             default:
                 break;
         }
-        return file;
     },
     updateSizing: function () {
         if (window.innerWidth < window.innerHeight) {
@@ -225,12 +222,13 @@ let tileTown = {
         tileTown.removeAllPieces();
         let fileNumber = 0;
         let rank = 8;
-        let pastPosition = false;
         let positionFen = fen.slice(0, fen.indexOf(" "));
-        console.log(positionFen);
         let settingsFen = fen.slice(fen.indexOf(" ") + 1);
         for (let i = 0; i < positionFen.length; i++) {
             let fileName = tileTown.numberToFile(fileNumber);
+            console.log(positionFen[i]);
+            console.log(fileName);
+            console.log(rank);
             switch (positionFen[i]) {
                 case "r":
                     tileTown.pieces.black.rooks.count += 1;
