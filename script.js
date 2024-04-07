@@ -285,6 +285,7 @@ let tileTown = {
                 default:
                     if (+fen[i] >= 0 && +fen[i] <= 8) {
                         fileNumber += +fen[i];
+                        console.log();
                     }
                     break;
             }
