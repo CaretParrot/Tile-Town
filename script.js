@@ -116,6 +116,7 @@ let tileTown = {
         setupTree();
     },
     pieces: {
+        whiteToMove: true,
         white: {
             pawns: {
                 count: 0
@@ -134,7 +135,9 @@ let tileTown = {
             },
             kings: {
                 count: 0
-            }
+            },
+            castleQueenside: false,
+            castleKingside: false
         },
         black: {
             pawns: {
@@ -154,7 +157,9 @@ let tileTown = {
             },
             kings: {
                 count: 0
-            }
+            },
+            castleQueenside: false,
+            castleKingside: false
         }
     },
     removePiece: function (piece, pieceId) {
@@ -181,7 +186,9 @@ let tileTown = {
                 },
                 kings: {
                     count: 0
-                }
+                },
+                castleQueenside: false,
+                castleKingside: false
             },
             black: {
                 pawns: {
@@ -201,7 +208,9 @@ let tileTown = {
                 },
                 kings: {
                     count: 0
-                }
+                },
+                castleQueenside: false,
+                castleKingside: false
             }
         }
 
@@ -215,9 +224,12 @@ let tileTown = {
         tileTown.removeAllPieces();
         let fileNumber = 0;
         let rank = 8;
-        for (let i = 0; i < fen.length; i++) {
+        let pastPosition = false;
+        let positionFen = fen.slice(0, fen.indexOf(" "));
+        let settingsFen = fen.slice(fen.indexOf(" ") + 1);
+        for (let i = 0; i < positionFen.length; i++) {
             let fileName = tileTown.numberToFile(fileNumber);
-            switch (fen[i]) {
+            switch (positionFen[i]) {
                 case "r":
                     tileTown.pieces.black.rooks.count += 1;
                     tileTown.pieces.black.rooks[(tileTown.pieces.black.rooks.count).toString()] = new tileTown.Piece("assets/rook-b.svg", `${fileName}${rank}`, `blackRook${(tileTown.pieces.black.rooks.count).toString()}`, "black rook piece");
@@ -282,15 +294,33 @@ let tileTown = {
                 rank--;
             }
         }
+        for (let i = 0; i < settingsFen.length; i++) {
+            switch (settingsFen[i]) {
+                case "w":
+                    tileTown.pieces.whiteToMove = true;
+                case "b":
+                    tileTown.pieces.whiteToMove = false;
+                case "Q":
+                    tileTown.pieces.white.castleQueenside = true;
+                case "K":
+                    tileTown.pieces.white.castleKingside = true;
+                case "q":
+                    tileTown.pieces.black.castleQueenside = true;
+                case "k":
+                    tileTown.pieces.black.castleKingside = true;
+                default:
+                    break;
+            }
+        }
     }
 }
 
 tileTown.updateSizing();
-tileTown.createBoard();
-tileTown.addAllPieces();
+    tileTown.createBoard();
+    tileTown.addAllPieces();
 
-tileTown.parseFen("7p/2b3p1/3R1n2/1K1B4/2P1p1K1/1b3N2/1P1Q4/7k w - - 0 1");
+    tileTown.parseFen("7p/2b3p1/3R1n2/1K1B4/2P1p1K1/1b3N2/1P1Q4/7k w - - 0 1");
 
-document.documentElement.onresize = function (event) {
-    tileTown.updateSizing();
-}
+    document.documentElement.onresize = function (event) {
+        tileTown.updateSizing();
+    }
