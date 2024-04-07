@@ -283,9 +283,9 @@ let tileTown = {
                     rank++;
                     break;
                 default:
-                    if (+fen[i] >= 0 && +fen[i] <= 8) {
+                    if (+positionFen[i] >= 0 && +positionFen[i] <= 8) {
                         fileNumber += +fen[i];
-                        console.log();
+                        console.log("Hmmmm");
                     }
                     break;
             }
