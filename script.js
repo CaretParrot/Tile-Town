@@ -285,7 +285,6 @@ let tileTown = {
                 default:
                     if (+positionFen[i] >= 0 && +positionFen[i] <= 8) {
                         fileNumber += +positionFen[i];
-                        console.log(+positionFen[i]);
                     }
                     break;
             }
@@ -294,6 +293,9 @@ let tileTown = {
                 fileNumber = 0;
                 rank--;
             }
+            console.log(positionFen[i]);
+            console.log(fileNumber);
+            console.log(rank);
         }
         for (let i = 0; i < settingsFen.length; i++) {
             switch (settingsFen[i]) {
@@ -317,11 +319,11 @@ let tileTown = {
 }
 
 tileTown.updateSizing();
-    tileTown.createBoard();
-    tileTown.addAllPieces();
+tileTown.createBoard();
+tileTown.addAllPieces();
 
-    tileTown.parseFen("7p/2b3p1/3R1n2/1K1B4/2P1p1K1/1b3N2/1P1Q4/7k w - - 0 1");
+tileTown.parseFen("7p/2b3p1/3R1n2/1K1B4/2P1p1K1/1b3N2/1P1Q4/7k w - - 0 1");
 
-    document.documentElement.onresize = function (event) {
-        tileTown.updateSizing();
-    }
+document.documentElement.onresize = function (event) {
+    tileTown.updateSizing();
+}
