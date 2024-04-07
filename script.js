@@ -223,12 +223,15 @@ let tileTown = {
     parseFen: function (fen) {
         tileTown.removeAllPieces();
         let fileNumber = 0;
-        let rank = 9;
+        let rank = 8;
         let pastPosition = false;
         let positionFen = fen.slice(0, fen.indexOf(" "));
         let settingsFen = fen.slice(fen.indexOf(" ") + 1);
         for (let i = 0; i < positionFen.length; i++) {
             let fileName = tileTown.numberToFile(fileNumber);
+            console.log(positionFen[i]);
+            console.log(fileNumber);
+            console.log(rank);
             switch (positionFen[i]) {
                 case "r":
                     tileTown.pieces.black.rooks.count += 1;
@@ -256,27 +259,27 @@ let tileTown = {
                     break;
                 case "R":
                     tileTown.pieces.white.rooks.count += 1;
-                    tileTown.pieces.white.rooks[(tileTown.pieces.white.rooks.count).toString()] = new tileTown.Piece("assets/rook-b.svg", `${fileName}${rank}`, `whiteRook${(tileTown.pieces.white.rooks.count).toString()}`, "white rook piece");
+                    tileTown.pieces.white.rooks[(tileTown.pieces.white.rooks.count).toString()] = new tileTown.Piece("assets/rook-w.svg", `${fileName}${rank}`, `whiteRook${(tileTown.pieces.white.rooks.count).toString()}`, "white rook piece");
                     break;
                 case "N":
                     tileTown.pieces.white.knights.count += 1;
-                    tileTown.pieces.white.knights[(tileTown.pieces.white.knights.count).toString()] = new tileTown.Piece("assets/knight-b.svg", `${fileName}${rank}`, `whiteKnight${(tileTown.pieces.white.knights.count).toString()}`, "white knight piece");
+                    tileTown.pieces.white.knights[(tileTown.pieces.white.knights.count).toString()] = new tileTown.Piece("assets/knight-w.svg", `${fileName}${rank}`, `whiteKnight${(tileTown.pieces.white.knights.count).toString()}`, "white knight piece");
                     break;
                 case "B":
                     tileTown.pieces.white.bishops.count += 1;
-                    tileTown.pieces.white.bishops[(tileTown.pieces.white.bishops.count).toString()] = new tileTown.Piece("assets/bishop-b.svg", `${fileName}${rank}`, `whiteBishop${(tileTown.pieces.white.bishops.count).toString()}`, "white bishop piece");
+                    tileTown.pieces.white.bishops[(tileTown.pieces.white.bishops.count).toString()] = new tileTown.Piece("assets/bishop-w.svg", `${fileName}${rank}`, `whiteBishop${(tileTown.pieces.white.bishops.count).toString()}`, "white bishop piece");
                     break;
                 case "Q":
                     tileTown.pieces.white.queens.count += 1;
-                    tileTown.pieces.white.queens[(tileTown.pieces.white.queens.count).toString()] = new tileTown.Piece("assets/queen-b.svg", `${fileName}${rank}`, `whiteQueen${(tileTown.pieces.white.queens.count).toString()}`, "white queen piece");
+                    tileTown.pieces.white.queens[(tileTown.pieces.white.queens.count).toString()] = new tileTown.Piece("assets/queen-w.svg", `${fileName}${rank}`, `whiteQueen${(tileTown.pieces.white.queens.count).toString()}`, "white queen piece");
                     break;
                 case "K":
                     tileTown.pieces.white.kings.count += 1;
-                    tileTown.pieces.white.kings[(tileTown.pieces.white.kings.count).toString()] = new tileTown.Piece("assets/king-b.svg", `${fileName}${rank}`, `whiteKing${(tileTown.pieces.white.kings.count).toString()}`, "white king piece");
+                    tileTown.pieces.white.kings[(tileTown.pieces.white.kings.count).toString()] = new tileTown.Piece("assets/king-w.svg", `${fileName}${rank}`, `whiteKing${(tileTown.pieces.white.kings.count).toString()}`, "white king piece");
                     break;
                 case "P":
                     tileTown.pieces.white.pawns.count += 1;
-                    tileTown.pieces.white.pawns[(tileTown.pieces.white.pawns.count).toString()] = new tileTown.Piece("assets/pawn-b.svg", `${fileName}${rank}`, `whitePawn${(tileTown.pieces.white.pawns.count).toString()}`, "white pawn piece");
+                    tileTown.pieces.white.pawns[(tileTown.pieces.white.pawns.count).toString()] = new tileTown.Piece("assets/pawn-w.svg", `${fileName}${rank}`, `whitePawn${(tileTown.pieces.white.pawns.count).toString()}`, "white pawn piece");
                     break;
                 case "/":
                     fileNumber = -1;
@@ -293,9 +296,6 @@ let tileTown = {
                 fileNumber = 0;
                 rank--;
             }
-            console.log(positionFen[i]);
-            console.log(fileNumber);
-            console.log(rank);
         }
         for (let i = 0; i < settingsFen.length; i++) {
             switch (settingsFen[i]) {
