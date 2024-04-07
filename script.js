@@ -271,10 +271,10 @@ let tileTown = {
                     rank++;
                     break;
                 default:
+                    if (+fen[i] >= 0 && +fen[i] <= 8) {
+                        fileNumber += +fen[i];
+                    }
                     break;
-            }
-            if (+fen[i] >= 0 && +fen[i] <= 8) {
-                fileNumber += +fen[i];
             }
             fileNumber++;
             if (fileNumber > 7) {
