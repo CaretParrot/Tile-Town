@@ -223,7 +223,7 @@ let tileTown = {
     parseFen: function (fen) {
         tileTown.removeAllPieces();
         let fileNumber = 0;
-        let rank = 8;
+        let rank = 9;
         let pastPosition = false;
         let positionFen = fen.slice(0, fen.indexOf(" "));
         let settingsFen = fen.slice(fen.indexOf(" ") + 1);
