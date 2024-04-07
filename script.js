@@ -270,11 +270,11 @@ let tileTown = {
                     fileNumber = -1;
                     rank++;
                     break;
-                case /[1-8]/.test(fen[i]):
-                    fileNumber += +fen[i];
-                    break;
                 default:
                     break;
+            }
+            if (+fen[i] >= 0 && +fen[i] <= 8) {
+                fileNumber += +fen[i];
             }
             fileNumber++;
             if (fileNumber > 7) {
