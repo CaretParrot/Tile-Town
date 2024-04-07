@@ -15,6 +15,7 @@ let tileTown = {
         this.coordinate = square;
     },
     movePiece: function (object, square) {
+        console.log(square);
         object.setAttribute("x", +idTree[square].getAttribute("x") + tileTown.board.piecePadding);
         object.setAttribute("y", +idTree[square].getAttribute("y") + tileTown.board.piecePadding);
     },
@@ -229,9 +230,6 @@ let tileTown = {
         let settingsFen = fen.slice(fen.indexOf(" ") + 1);
         for (let i = 0; i < positionFen.length; i++) {
             let fileName = tileTown.numberToFile(fileNumber);
-            console.log(positionFen[i]);
-            console.log(fileNumber);
-            console.log(rank);
             switch (positionFen[i]) {
                 case "r":
                     tileTown.pieces.black.rooks.count += 1;
