@@ -221,12 +221,12 @@ let tileTown = {
     parseFen: function (fen) {
         tileTown.removeAllPieces();
         let fileNumber = 0;
-        let rank = 8;
+        let rank = 9;
         let positionFen = fen.slice(0, fen.indexOf(" "));
         let settingsFen = fen.slice(fen.indexOf(" ") + 1);
         for (let i = 0; i < positionFen.length; i++) {
             let fileName = tileTown.numberToFile(fileNumber);
-            console.log(positionFen[i]);
+            console.log(+positionFen[i]);
             console.log(fileName);
             console.log(rank);
             switch (positionFen[i]) {
@@ -283,7 +283,7 @@ let tileTown = {
                     rank--;
                     break;
                 default:
-                    if (+positionFen[i] >= 0 && +positionFen[i] <= 8) {
+                    if (+positionFen[i] >= 1 && +positionFen[i] <= 8) {
                         fileNumber += +positionFen[i];
                     }
                     break;
