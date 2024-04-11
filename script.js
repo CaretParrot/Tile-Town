@@ -226,7 +226,7 @@ let tileTown = {
         let settingsFen = fen.slice(fen.indexOf(" ") + 1);
         for (let i = 0; i < positionFen.length; i++) {
             let fileName = tileTown.numberToFile(fileNumber);
-            console.log(+positionFen[i]);
+            console.log(positionFen);
             console.log(fileName);
             console.log(rank);
             switch (positionFen[i]) {
