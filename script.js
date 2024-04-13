@@ -286,11 +286,11 @@ let tileTown = {
                         fileNumber += +positionFen[i] - 1;
                     }
             }
-            fileNumber++;
             if (fileNumber > 7) {
-                fileNumber = 0;
+                fileNumber = -1;
                 rank--;
             }
+            fileNumber++;
         }
         for (let i = 0; i < settingsFen.length; i++) {
             switch (settingsFen[i]) {
