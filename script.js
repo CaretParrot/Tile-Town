@@ -229,6 +229,9 @@ let tileTown = {
             console.log(positionFen);
             console.log(fileName);
             console.log(rank);
+            if (rank < 1) {
+                break;
+            }
             switch (positionFen[i]) {
                 case "r":
                     tileTown.pieces.black.rooks.count += 1;
