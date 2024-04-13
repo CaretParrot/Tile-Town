@@ -227,7 +227,7 @@ let tileTown = {
         for (let i = 0; i < positionFen.length; i++) {
             let fileName = tileTown.numberToFile(fileNumber);
             console.log(positionFen[i]);
-            console.log(fileName);
+            console.log(fileNumber);
             console.log(rank);
             if (rank < 1) {
                 break;
