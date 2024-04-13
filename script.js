@@ -284,6 +284,9 @@ let tileTown = {
                 default:
                     if (+positionFen[i] >= 1 && +positionFen[i] <= 7) {
                         fileNumber += +positionFen[i] - 1;
+                    } else if (+positionFen[i] === 8) {
+                        fileNumber = -1;
+                        rank--;
                     }
             }
             if (fileNumber > 7) {
@@ -317,7 +320,7 @@ tileTown.updateSizing();
 tileTown.createBoard();
 tileTown.addAllPieces();
 
-tileTown.parseFen("7p/2b3p1/3R1n2/1K1B4/2P1p1K1/1b3N2/1P1Q4/7k w - - 0 1");
+tileTown.parseFen("rnbqk2r/pppp1ppp/4pn2/8/1bPP4/5N2/PP2PPPP/RNBQKB1R w KQkq - 2 4");
 
 document.documentElement.onresize = function (event) {
     tileTown.updateSizing();
