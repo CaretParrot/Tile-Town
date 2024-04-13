@@ -286,7 +286,7 @@ let tileTown = {
                     break;
                 default:
                     if (+positionFen[i] >= 1 && +positionFen[i] <= 7) {
-                        fileNumber += +positionFen[i];
+                        fileNumber += +positionFen[i] - 1;
                     }
             }
             fileNumber++;
