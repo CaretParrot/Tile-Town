@@ -226,9 +226,6 @@ let tileTown = {
         let settingsFen = fen.slice(fen.indexOf(" ") + 1);
         for (let i = 0; i < positionFen.length; i++) {
             let fileName = tileTown.numberToFile(fileNumber);
-            console.log(positionFen[i]);
-            console.log(fileNumber);
-            console.log(rank);
             if (rank < 1) {
                 break;
             }
@@ -319,8 +316,6 @@ let tileTown = {
 tileTown.updateSizing();
 tileTown.createBoard();
 tileTown.addAllPieces();
-
-tileTown.parseFen("rnbqk2r/pppp1ppp/4pn2/8/1bPP4/5N2/PP2PPPP/RNBQKB1R w KQkq - 2 4");
 
 document.documentElement.onresize = function (event) {
     tileTown.updateSizing();
