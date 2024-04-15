@@ -325,7 +325,7 @@ document.documentElement.onresize = function (event) {
     tileTown.updateSizing();
 }
 
-idTree.tester.onkeydown = function (event) {
+onkeydown = function (event) {
     if (event.key === "Enter") {
         eval(idTree.tester.innerHTML);
     }
