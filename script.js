@@ -310,6 +310,10 @@ let tileTown = {
                     break;
             }
         }
+    },
+    movePieceSAN: function (san) {
+        let startSquare = san.slice(0, 1);
+        let endSquare = san.slice(1);
     }
 }
 
