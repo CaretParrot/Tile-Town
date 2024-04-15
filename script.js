@@ -324,9 +324,3 @@ tileTown.addAllPieces();
 document.documentElement.onresize = function (event) {
     tileTown.updateSizing();
 }
-
-onkeydown = function (event) {
-    if (event.key === "Enter") {
-        console.log(Function(`return ${idTree.tester.value}`));
-    }
-}
