@@ -327,6 +327,6 @@ document.documentElement.onresize = function (event) {
 
 onkeydown = function (event) {
     if (event.key === "Enter") {
-        eval(idTree.tester.value);
+        console.log(Function(`return ${idTree.tester.value}`));
     }
 }
