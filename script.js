@@ -321,6 +321,6 @@ tileTown.updateSizing();
 tileTown.createBoard();
 tileTown.addAllPieces();
 
-document.documentElement.onresize = function (event) {
+onresize = function (event) {
     tileTown.updateSizing();
 }
