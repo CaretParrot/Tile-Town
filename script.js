@@ -18,7 +18,7 @@ let tileTown = {
     movePiece: function (object, square) {
         object.setAttribute("x", +idTree[square].getAttribute("x") + tileTown.board.piecePadding);
         object.setAttribute("y", +idTree[square].getAttribute("y") + tileTown.board.piecePadding);
-        object.setAttribute("id", `${object.id.slice(0, -2)} piece-${square}`);
+        object.id = `${object.id.slice(0, -2)} piece-${square}`;
     },
     numberToFile: function (number) {
         switch (number) {
