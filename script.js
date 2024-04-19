@@ -340,7 +340,8 @@ for (let i = 0; i < pieces.length; i++) {
 for (let i = 0; i < tiles.length; i++) {
     tiles[i].onmousedown = function (event) {
         if (tileTown.selectedPiece !== null) {
-            movePiece(tileTown.selectedPiece, tiles[i].id);
+            tileTown.movePiece(tileTown.selectedPiece, tiles[i].id);
+            tileTown.selectedPiece = null;
         }
     }
 }
