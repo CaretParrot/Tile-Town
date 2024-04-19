@@ -18,7 +18,7 @@ let tileTown = {
     movePiece: function (object, square) {
         object.setAttribute("x", +idTree[square].getAttribute("x") + tileTown.board.piecePadding);
         object.setAttribute("y", +idTree[square].getAttribute("y") + tileTown.board.piecePadding);
-        object.setAttribute("id", );
+        object.setAttribute("id", `${object.id.slice(0, -2)} ${square}`);
     },
     numberToFile: function (number) {
         switch (number) {
@@ -335,6 +335,7 @@ for (let i = 0; i < pieces.length; i++) {
         if (tileTown.board.selectedPiece === null) {
             tileTown.board.selectedPiece = pieces[i];
         } else if (pieces[i] !== tileTown.board.selectedPiece) {
+            console.log(pieces[i].id.slice(-2));
             tileTown.movePiece(tileTown.board.selectedPiece, pieces[i].id.slice(-2));
             tileTown.removePiece(pieces[i], pieces[i].id);
             tileTown.board.selectedPiece = null;
