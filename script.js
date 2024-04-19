@@ -11,14 +11,14 @@ let tileTown = {
         darkSquareColor: "hsl(240, 50%, 50%)"
     },
     Piece: function (href, square, newId, newClass) {
-        idTree.chessBoard.innerHTML += `<image class="${newClass}" href="${href}" id="${newId} piece-${square}" width="${tileTown.board.pieceWidth}" height="${tileTown.board.pieceWidth}"/>`;
-        tileTown.movePiece(id(`${newId} piece-${square}`), square);
+        idTree.chessBoard.innerHTML += `<image class="${newClass}" href="${href}" id="${newId}" width="${tileTown.board.pieceWidth}" height="${tileTown.board.pieceWidth}"/>`;
+        tileTown.movePiece(id(newId), square);
         this.coordinate = square;
     },
     movePiece: function (object, square) {
         object.setAttribute("x", +idTree[square].getAttribute("x") + tileTown.board.piecePadding);
         object.setAttribute("y", +idTree[square].getAttribute("y") + tileTown.board.piecePadding);
-        object.id = `${object.id.slice(0, -2)} piece-${square}`;
+        object.id = `piece-${square}`;
     },
     numberToFile: function (number) {
         switch (number) {
