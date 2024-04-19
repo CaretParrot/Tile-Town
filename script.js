@@ -333,6 +333,10 @@ for (let i = 0; i < pieces.length; i++) {
     pieces[i].onmousedown = function (event) {
         if (tileTown.board.selectedPiece === null) {
             tileTown.board.selectedPiece = pieces[i];
+        } else if (pieces[i] !== tileTown.board.selectedPiece) {
+            tileTown.removePiece(pieces[i], pieces[i].id);
+            tileTown.movePiece(tileTown.board.selectedPiece, tiles[i].id);
+            tileTown.board.selectedPiece = null;
         }
     }
 }
