@@ -6,6 +6,7 @@ let tileTown = {
         squareWidth: null,
         pieceWidth: null,
         piecePadding: null,
+        selectedPiece: null,
         lightSquareColor: "White",
         darkSquareColor: "hsl(240, 50%, 50%)"
     },
@@ -104,9 +105,9 @@ let tileTown = {
             for (let i = 0; i < 8; i++) {
                 let newFile = tileTown.numberToFile(i);
                 if ((j + i) % 2 === 1) {
-                    idTree.chessBoard.innerHTML += `<rect id="${newFile}${Math.abs(j - 8)}" width="${tileTown.board.squareWidth}" height="${tileTown.board.squareWidth}" fill="${tileTown.board.darkSquareColor}" x="${i * tileTown.board.squareWidth}" y="${j * tileTown.board.squareWidth}"></rect>`;
+                    idTree.chessBoard.innerHTML += `<rect id="${newFile}${Math.abs(j - 8)}" class="tile" width="${tileTown.board.squareWidth}" height="${tileTown.board.squareWidth}" fill="${tileTown.board.darkSquareColor}" x="${i * tileTown.board.squareWidth}" y="${j * tileTown.board.squareWidth}"></rect>`;
                 } else {
-                    idTree.chessBoard.innerHTML += `<rect id="${newFile}${Math.abs(j - 8)}" width="${tileTown.board.squareWidth}" height="${tileTown.board.squareWidth}" fill="${tileTown.board.lightSquareColor}" x="${i * tileTown.board.squareWidth}" y="${j * tileTown.board.squareWidth}"></rect>`;
+                    idTree.chessBoard.innerHTML += `<rect id="${newFile}${Math.abs(j - 8)}" class="tile" width="${tileTown.board.squareWidth}" height="${tileTown.board.squareWidth}" fill="${tileTown.board.lightSquareColor}" x="${i * tileTown.board.squareWidth}" y="${j * tileTown.board.squareWidth}"></rect>`;
                 }
             }
         }
@@ -323,4 +324,23 @@ tileTown.addAllPieces();
 
 onresize = function (event) {
     tileTown.updateSizing();
+}
+
+let pieces = document.getElementsByClassName("piece");
+let tiles = document.getElementsByClassName("tile");
+
+for (let i = 0; i < pieces.length; i++) {
+    pieces[i].onmousedown = function (event) {
+        if (tileTown.selectedPiece === null) {
+            tileTown.selectedPiece = pieces[i];
+        }
+    }
+}
+
+for (let i = 0; i < tiles.length; i++) {
+    tiles[i].onmousedown = function (event) {
+        if (tileTown.selectedPiece !== null) {
+            movePiece(tileTown.selectedPiece, tiles[i].id);
+        }
+    }
 }
