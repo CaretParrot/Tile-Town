@@ -331,17 +331,17 @@ let tiles = document.getElementsByClassName("tile");
 
 for (let i = 0; i < pieces.length; i++) {
     pieces[i].onmousedown = function (event) {
-        if (tileTown.selectedPiece === null) {
-            tileTown.selectedPiece = pieces[i];
+        if (tileTown.board.selectedPiece === null) {
+            tileTown.board.selectedPiece = pieces[i];
         }
     }
 }
 
 for (let i = 0; i < tiles.length; i++) {
     tiles[i].onmousedown = function (event) {
-        if (tileTown.selectedPiece !== null) {
-            tileTown.movePiece(tileTown.selectedPiece, tiles[i].id);
-            tileTown.selectedPiece = null;
+        if (tileTown.board.selectedPiece !== null) {
+            tileTown.movePiece(tileTown.board.selectedPiece, tiles[i].id);
+            tileTown.board.selectedPiece = null;
         }
     }
 }
