@@ -335,7 +335,7 @@ for (let i = 0; i < pieces.length; i++) {
         if (tileTown.board.selectedPiece === null) {
             tileTown.board.selectedPiece = pieces[i];
         } else if (pieces[i] !== tileTown.board.selectedPiece) {
-            tileTown.movePiece(tileTown.board.selectedPiece, pieces[i].id);
+            tileTown.movePiece(tileTown.board.selectedPiece, pieces[i].id.slice(-2));
             tileTown.removePiece(pieces[i], pieces[i].id);
             tileTown.board.selectedPiece = null;
         }
