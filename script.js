@@ -11,13 +11,14 @@ let tileTown = {
         darkSquareColor: "hsl(240, 50%, 50%)"
     },
     Piece: function (href, square, newId, newClass) {
-        idTree.chessBoard.innerHTML += `<image class="${newClass}" href="${href}" id="${newId}" width="${tileTown.board.pieceWidth}" height="${tileTown.board.pieceWidth}"/>`;
+        idTree.chessBoard.innerHTML += `<image class="${newClass}" href="${href}" id="${newId} piece-${square}" width="${tileTown.board.pieceWidth}" height="${tileTown.board.pieceWidth}"/>`;
         tileTown.movePiece(id(newId), square);
         this.coordinate = square;
     },
     movePiece: function (object, square) {
         object.setAttribute("x", +idTree[square].getAttribute("x") + tileTown.board.piecePadding);
         object.setAttribute("y", +idTree[square].getAttribute("y") + tileTown.board.piecePadding);
+        object.setAttribute("id", );
     },
     numberToFile: function (number) {
         switch (number) {
@@ -334,8 +335,8 @@ for (let i = 0; i < pieces.length; i++) {
         if (tileTown.board.selectedPiece === null) {
             tileTown.board.selectedPiece = pieces[i];
         } else if (pieces[i] !== tileTown.board.selectedPiece) {
+            tileTown.movePiece(tileTown.board.selectedPiece, pieces[i].id);
             tileTown.removePiece(pieces[i], pieces[i].id);
-            tileTown.movePiece(tileTown.board.selectedPiece, tiles[i].id);
             tileTown.board.selectedPiece = null;
         }
     }
