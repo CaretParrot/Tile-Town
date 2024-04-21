@@ -11,7 +11,7 @@ let tileTown = {
         darkSquareColor: "hsl(240, 50%, 50%)"
     },
     Piece: function (href, square, newId, newClass) {
-        idTree.chessBoard.innerHTML += `<image class="${newClass}" href="${href}" id="${newId}" onmousedown="clickPieceHandler(id('${newId}'))" width="${tileTown.board.pieceWidth}" height="${tileTown.board.pieceWidth}"/>`;
+        idTree.chessBoard.innerHTML += `<image class="${newClass}" href="${href}" id="${newId}" onmousedown="clickPieceHandler(document.getElementById('${newId}'))" width="${tileTown.board.pieceWidth}" height="${tileTown.board.pieceWidth}"/>`;
         tileTown.movePiece(id(newId), square);
         this.coordinate = square;
     },
@@ -106,9 +106,9 @@ let tileTown = {
             for (let i = 0; i < 8; i++) {
                 let newFile = tileTown.numberToFile(i);
                 if ((j + i) % 2 === 1) {
-                    idTree.chessBoard.innerHTML += `<rect id="${newFile}${Math.abs(j - 8)}" onmousedown="clickTileHandler(id('${newFile}${Math.abs(j - 8)}'))" class="tile" width="${tileTown.board.squareWidth}" height="${tileTown.board.squareWidth}" fill="${tileTown.board.darkSquareColor}" x="${i * tileTown.board.squareWidth}" y="${j * tileTown.board.squareWidth}"></rect>`;
+                    idTree.chessBoard.innerHTML += `<rect id="${newFile}${Math.abs(j - 8)}" onmousedown="clickTileHandler(document.getElementById('${newFile}${Math.abs(j - 8)}'))" class="tile" width="${tileTown.board.squareWidth}" height="${tileTown.board.squareWidth}" fill="${tileTown.board.darkSquareColor}" x="${i * tileTown.board.squareWidth}" y="${j * tileTown.board.squareWidth}"></rect>`;
                 } else {
-                    idTree.chessBoard.innerHTML += `<rect id="${newFile}${Math.abs(j - 8)}" onmousedown="clickTileHandler(id('${newFile}${Math.abs(j - 8)}'))" class="tile" width="${tileTown.board.squareWidth}" height="${tileTown.board.squareWidth}" fill="${tileTown.board.lightSquareColor}" x="${i * tileTown.board.squareWidth}" y="${j * tileTown.board.squareWidth}"></rect>`;
+                    idTree.chessBoard.innerHTML += `<rect id="${newFile}${Math.abs(j - 8)}" onmousedown="clickTileHandler(document.getElementById('${newFile}${Math.abs(j - 8)}'))" class="tile" width="${tileTown.board.squareWidth}" height="${tileTown.board.squareWidth}" fill="${tileTown.board.lightSquareColor}" x="${i * tileTown.board.squareWidth}" y="${j * tileTown.board.squareWidth}"></rect>`;
                 }
             }
         }
