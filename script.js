@@ -334,6 +334,7 @@ for (let i = 0; i < pieces.length; i++) {
     pieces[i].onmousedown = function (event) {
         if (tileTown.board.selectedPiece === null) {
             tileTown.board.selectedPiece = pieces[i];
+            tileTown.board.selectedPiece.style.backgroundColor = "Red";
         } else if (pieces[i] !== tileTown.board.selectedPiece) {
             console.log(pieces[i].id.slice(-2));
             tileTown.movePiece(tileTown.board.selectedPiece, pieces[i].id.slice(-2));
@@ -348,6 +349,7 @@ for (let i = 0; i < tiles.length; i++) {
         if (tileTown.board.selectedPiece !== null) {
             tileTown.movePiece(tileTown.board.selectedPiece, tiles[i].id);
             tileTown.board.selectedPiece = null;
+            tileTown.board.selectedPiece.style.backgroundColor = "transparent";
         }
     }
 }
