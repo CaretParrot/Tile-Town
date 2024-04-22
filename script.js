@@ -333,7 +333,7 @@ let tiles = document.getElementsByClassName("tile");
 function clickPieceHandler(object) {
     if (tileTown.board.selectedPiece === null) {
         tileTown.board.selectedPiece = object;
-    } else {
+    } else if (tileTown.board.selectedPiece !== object) {
         tileTown.movePiece(tileTown.board.selectedPiece, object.id.slice(-2));
         tileTown.removePiece(object, object.id);
         tileTown.board.selectedPiece = null;
