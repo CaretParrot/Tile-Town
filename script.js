@@ -19,6 +19,7 @@ let tileTown = {
         object.setAttribute("x", +idTree[square].getAttribute("x") + tileTown.board.piecePadding);
         object.setAttribute("y", +idTree[square].getAttribute("y") + tileTown.board.piecePadding);
         object.setAttribute("id", `piece-${square}`);
+        setupTree();
     },
     numberToFile: function (number) {
         switch (number) {
@@ -328,7 +329,6 @@ onresize = function (event) {
 }
 
 function clickPieceHandler(object) {
-    alert(object);
     if (tileTown.board.selectedPiece === null) {
         tileTown.board.selectedPiece = object;
     } else if (tileTown.board.selectedPiece !== object) {
@@ -336,14 +336,11 @@ function clickPieceHandler(object) {
         tileTown.removePiece(object, object.id);
         tileTown.board.selectedPiece = null;
     }
-    setupTree();
 }
 
 function clickTileHandler(object) {
-    alert(object);
     if (tileTown.board.selectedPiece !== null) {
         tileTown.movePiece(tileTown.board.selectedPiece, object.id);
         tileTown.board.selectedPiece = null;
     }
-    setupTree();
 }
