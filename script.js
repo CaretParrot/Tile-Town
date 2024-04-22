@@ -327,9 +327,6 @@ onresize = function (event) {
     tileTown.updateSizing();
 }
 
-let pieces = document.getElementsByClassName("piece");
-let tiles = document.getElementsByClassName("tile");
-
 function clickPieceHandler(object) {
     if (tileTown.board.selectedPiece === null) {
         tileTown.board.selectedPiece = object;
@@ -337,7 +334,6 @@ function clickPieceHandler(object) {
         tileTown.movePiece(tileTown.board.selectedPiece, object.id.slice(-2));
         tileTown.removePiece(object, object.id);
         tileTown.board.selectedPiece = null;
-        pieces = document.getElementsByClassName("piece");
     }
 }
 
@@ -345,6 +341,5 @@ function clickTileHandler(object) {
     if (tileTown.board.selectedPiece !== null) {
         tileTown.movePiece(tileTown.board.selectedPiece, object.id);
         tileTown.board.selectedPiece = null;
-        pieces = document.getElementsByClassName("piece");
     }
 }
