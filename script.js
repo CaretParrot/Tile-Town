@@ -336,6 +336,7 @@ function clickPieceHandler(object) {
         tileTown.removePiece(object, object.id);
         tileTown.board.selectedPiece = null;
     }
+    setupTree();
 }
 
 function clickTileHandler(object) {
@@ -344,4 +345,5 @@ function clickTileHandler(object) {
         tileTown.movePiece(tileTown.board.selectedPiece, object.id);
         tileTown.board.selectedPiece = null;
     }
+    setupTree();
 }
