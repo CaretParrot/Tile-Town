@@ -328,6 +328,7 @@ onresize = function (event) {
 }
 
 function clickPieceHandler(object) {
+    alert(object);
     if (tileTown.board.selectedPiece === null) {
         tileTown.board.selectedPiece = object;
     } else if (tileTown.board.selectedPiece !== object) {
@@ -338,6 +339,7 @@ function clickPieceHandler(object) {
 }
 
 function clickTileHandler(object) {
+    alert(object);
     if (tileTown.board.selectedPiece !== null) {
         tileTown.movePiece(tileTown.board.selectedPiece, object.id);
         tileTown.board.selectedPiece = null;
