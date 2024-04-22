@@ -6,7 +6,7 @@ let tileTown = {
         squareWidth: null,
         pieceWidth: null,
         piecePadding: null,
-        selectedPiece: null,
+        selectedPieceId: null,
         lightSquareColor: "White",
         darkSquareColor: "hsl(240, 50%, 50%)"
     },
@@ -329,20 +329,20 @@ onresize = function (event) {
 }
 
 function clickPieceHandler(object) {
-    if (tileTown.board.selectedPiece === null) {
-        tileTown.board.selectedPiece = object;
-    } else if (tileTown.board.selectedPiece !== object) {
-        tileTown.movePiece(tileTown.board.selectedPiece, object.id.slice(-2));
+    if (tileTown.board.selectedPieceId === "") {
+        tileTown.board.selectedPieceId = object.id;
+    } else if (tileTown.board.selectedPieceId !== object.id) {
+        tileTown.board.selectedPieceId = "";
+        tileTown.movePiece(id(tileTown.board.selectedPieceId), object.id.slice(-2));
         tileTown.removePiece(object, object.id);
-        tileTown.board.selectedPiece = null;
-    } else if (tileTown.board.selectedPiece === object) {
-        tileTown.board.selectedPiece = null;
+    } else if (tileTown.board.selectedPieceId === object.id) {
+        tileTown.board.selectedPieceId = "";
     }
 }
 
 function clickTileHandler(object) {
-    if (tileTown.board.selectedPiece !== null) {
-        tileTown.movePiece(tileTown.board.selectedPiece, object.id);
-        tileTown.board.selectedPiece = null;
+    if (tileTown.board.selectedPieceId !== "") {
+        tileTown.movePiece(id(tileTown.board.selectedPieceId), object.id);
+        tileTown.board.selectedPieceId = "";
     }
 }
