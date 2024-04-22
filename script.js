@@ -6,7 +6,7 @@ let tileTown = {
         squareWidth: null,
         pieceWidth: null,
         piecePadding: null,
-        selectedPieceId: null,
+        selectedPieceId: "",
         lightSquareColor: "White",
         darkSquareColor: "hsl(240, 50%, 50%)"
     },
