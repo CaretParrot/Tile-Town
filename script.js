@@ -316,9 +316,8 @@ let tileTown = {
         }
     },
     movePieceSAN: function (san) {
-        let startSquare = san.slice(0, 1);
-        let endSquare = san.slice(2);
-        tileTown.movePiece(id(`piece-${startSquare}`), endSquare);
+        alert(`id(piece-${san.slice(0, 1)}), san.slice(2)`);
+        tileTown.movePiece(id(`piece-${san.slice(0, 1)}`), san.slice(2));
     }
 }
 
@@ -355,8 +354,8 @@ idTree.fenInput.onkeydown = function (event) {
     }
 }
 
-idTree.movePiece.onkeydown = function (event) {
+idTree.movePieceInput.onkeydown = function (event) {
     if (event.key === "Enter") {
-        tileTown.movePieceSAN(idTree.movePiece.value);
+        tileTown.movePieceSAN(idTree.movePieceInput.value);
     }
 }

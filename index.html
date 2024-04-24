@@ -9,12 +9,17 @@
         <link rel="icon" href="https://caretparrot.github.io/My-Libraries/Profile%20Picture.png">
         <script defer src="https://caretparrot.github.io/My-Libraries/gpl.js"></script>
         <script defer src="script.js"></script>
+        <style>
+            textarea, input {
+                height: initial;
+            }
+        </style>
     </head>
 
     <body>
         <svg id="chessBoard" style="padding: 0; margin: 0; border-radius: 0; background-color: transparent;"></svg>
         <textarea placeholder="FEN" id="fenInput"></textarea>
-        <input id="movePiece" placeholder="SAN Move Input">
+        <input id="movePieceInput" placeholder="SAN Move Input">
     </body>
 
 </html>
