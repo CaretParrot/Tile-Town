@@ -316,8 +316,8 @@ let tileTown = {
         }
     },
     movePieceSAN: function (san) {
-        alert(`id(piece-${san.slice(0, 2)}), ${san.slice(3)}`);
-        tileTown.movePiece(id(`piece-${san.slice(0, 1)}`), san.slice(2));
+        alert(`id(piece-${san.slice(0, 2)}), ${san.slice(2)}`);
+        tileTown.movePiece(id(`piece-${san.slice(0, 2)}`), san.slice(2));
     }
 }
 
