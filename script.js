@@ -347,3 +347,9 @@ function clickTileHandler(object) {
         tileTown.board.selectedPieceId = "";
     }
 }
+
+idTree.fenInput.onkeydown = function (event) {
+    if (event.key === "Enter") {
+        tileTown.parseFen(idTree.fenInput.value);
+    }
+}
