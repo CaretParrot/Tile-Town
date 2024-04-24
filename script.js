@@ -332,11 +332,11 @@ onresize = function (event) {
 function clickPieceHandler(object) {
     if (tileTown.board.selectedPieceId === "") {
         tileTown.board.selectedPieceId = object.id;
+    }  else if (tileTown.board.selectedPieceId === object.id) {
+        tileTown.board.selectedPieceId = "";
     } else if (tileTown.board.selectedPieceId !== object.id) {
         tileTown.movePiece(id(tileTown.board.selectedPieceId), object.id.slice(-2));
         tileTown.removePiece(object, object.id);
-        tileTown.board.selectedPieceId = "";
-    } else if (tileTown.board.selectedPieceId === object.id) {
         tileTown.board.selectedPieceId = "";
     }
 }
