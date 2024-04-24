@@ -317,7 +317,8 @@ let tileTown = {
     },
     movePieceSAN: function (san) {
         let startSquare = san.slice(0, 1);
-        let endSquare = san.slice(1);
+        let endSquare = san.slice(2);
+        tileTown.movePiece(id(`piece-${startSquare}`), endSquare);
     }
 }
 
@@ -351,5 +352,11 @@ function clickTileHandler(object) {
 idTree.fenInput.onkeydown = function (event) {
     if (event.key === "Enter") {
         tileTown.parseFen(idTree.fenInput.value);
+    }
+}
+
+idTree.movePiece.onkeydown = function (event) {
+    if (event.key === "Enter") {
+        tileTown.movePieceSAN(idTree.movePiece.value);
     }
 }
