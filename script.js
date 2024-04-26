@@ -316,7 +316,14 @@ let tileTown = {
         }
     },
     movePieceSAN: function (san) {
-        tileTown.movePiece(id(`piece-${san.slice(0, 2)}`), san.slice(2));
+        let allPieces = document.getElementsByClassName("piece");
+
+        for (let i = 0; i < allPieces.length; i++) {
+            if (allPieces[i].id.includes(san.slice(0, 2))) {
+                tileTown.movePiece(id(allPieces[i].id), san.slice(2));
+                break;
+            }
+        }
     }
 }
 
