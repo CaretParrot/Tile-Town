@@ -363,5 +363,6 @@ idTree.fenInput.onkeydown = function (event) {
 idTree.movePieceInput.onkeydown = function (event) {
     if (event.key === "Enter") {
         tileTown.movePieceSAN(idTree.movePieceInput.value);
+        idTree.movePieceInput.value = "";
     }
 }
