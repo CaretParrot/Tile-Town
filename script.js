@@ -170,6 +170,7 @@ let tileTown = {
     },
     removeAllPieces: function () {
         tileTown.pieces = {
+            whiteToMove: true,
             white: {
                 pawns: {
                     count: 0
