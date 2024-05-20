@@ -319,11 +319,16 @@ let tileTown = {
         let allPieces = document.getElementsByClassName("piece");
 
         for (let i = 0; i < allPieces.length; i++) {
+            if (allPieces[i].id.includes(san.slice(2))) {
+                tileTown.removePiece(id(allPieces[i].id), allPieces[i].id);
+            }
             if (allPieces[i].id.includes(san.slice(0, 2))) {
                 tileTown.movePiece(id(allPieces[i].id), san.slice(2));
                 break;
             }
         }
+
+        
     }
 }
 
