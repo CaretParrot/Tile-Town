@@ -318,15 +318,18 @@ let tileTown = {
     },
     movePieceSAN: function (san) {
         let allPieces = document.getElementsByClassName("piece");
-
-        for (let i = 0; i < allPieces.length; i++) {
-            if (allPieces[i].id.includes(san.slice(2))) {
-                tileTown.removePiece(allPieces[i], allPieces[i].id);
+        if (san.length === 4) {
+            for (let i = 0; i < allPieces.length; i++) {
+                if (allPieces[i].id.includes(san.slice(2))) {
+                    tileTown.removePiece(allPieces[i], allPieces[i].id);
+                }
+                if (allPieces[i].id.includes(san.slice(0, 2))) {
+                    tileTown.movePiece(id(allPieces[i].id), san.slice(2));
+                    break;
+                }
             }
-            if (allPieces[i].id.includes(san.slice(0, 2))) {
-                tileTown.movePiece(id(allPieces[i].id), san.slice(2));
-                break;
-            }
+        } else {
+            console.error("Invalid SAN was entered.");
         }
     },
     resetBoard: function () {
