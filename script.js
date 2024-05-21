@@ -328,8 +328,10 @@ let tileTown = {
                 break;
             }
         }
-
-        
+    },
+    resetBoard: function () {
+        tileTown.removeAllPieces();
+        tileTown.addAllPieces();
     }
 }
 
