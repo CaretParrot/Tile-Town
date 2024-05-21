@@ -164,9 +164,9 @@ let tileTown = {
             castleKingside: false
         }
     },
-    removePiece: function (piece, pieceId) {
+    removePiece: function (piece) {
         delete tileTown.pieces[piece];
-        id(pieceId).remove();
+        piece.remove();
     },
     removeAllPieces: function () {
         tileTown.pieces = {
@@ -321,7 +321,7 @@ let tileTown = {
         if (san.length === 4) {
             for (let i = 0; i < allPieces.length; i++) {
                 if (allPieces[i].id.includes(san.slice(2))) {
-                    tileTown.removePiece(allPieces[i], allPieces[i].id);
+                    tileTown.removePiece(allPieces[i]);
                 }
                 if (allPieces[i].id.includes(san.slice(0, 2))) {
                     tileTown.movePiece(id(allPieces[i].id), san.slice(2));
@@ -353,7 +353,7 @@ function clickPieceHandler(object) {
         tileTown.board.selectedPieceId = "";
     } else if (tileTown.board.selectedPieceId !== object.id) {
         tileTown.movePiece(id(tileTown.board.selectedPieceId), object.id.slice(-2));
-        tileTown.removePiece(object, object.id);
+        tileTown.removePiece(object);
         tileTown.board.selectedPieceId = "";
     }
 }
