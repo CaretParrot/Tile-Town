@@ -53,12 +53,6 @@ let tileTown = {
         }
     },
     updateSizing: function () {
-        if (window.innerWidth < window.innerHeight) {
-            tileTown.board.size = +idTree.chessBoard.getAttribute("width");
-        } else {
-            tileTown.board.size = +idTree.chessBoard.getAttribute("height");
-        }
-
         let tiles = document.getElementsByClassName("tile");
 
         tileTown.board.squareWidth = +tileTown.board.size / 8;
