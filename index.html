@@ -8,7 +8,9 @@
         <link rel="stylesheet" href="https://caretparrot.github.io/My-Libraries/dark.css">
         <link rel="icon" href="https://caretparrot.github.io/My-Libraries/Profile%20Picture.png">
         <style>
-            button, input, textarea {
+            button,
+            input,
+            textarea {
                 align-items: center;
                 justify-content: center;
                 text-align: center;
@@ -19,7 +21,9 @@
     </head>
 
     <body>
-        <svg id="chessBoard" style="flex-grow: 1; padding: 0; margin: 0; border-radius: 0; background-color: transparent;"></svg>
+        <div>
+            <svg id="chessBoard" style="width: 100%; padding: 0; margin: 0; border-radius: 0; background-color: transparent;"></svg>
+        </div>
         <div style="flex-flow: column wrap;">
             <textarea placeholder="FEN" id="fenInput"></textarea>
             <input id="movePieceInput" placeholder="SAN Move Input">
