@@ -1,5 +1,7 @@
 setupTree();
 
+alert(document.getElementById("chessBoard").offsetWidth);
+
 let tileTown = {
     board: {
         size: document.getElementById("chessBoard").offsetWidth,
