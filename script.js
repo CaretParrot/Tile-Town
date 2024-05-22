@@ -65,8 +65,6 @@ let tileTown = {
 
         let tiles = document.getElementsByClassName("tile");
 
-        
-
         tileTown.board.squareWidth = +tileTown.board.size / 8;
         tileTown.board.pieceWidth = +tileTown.board.squareWidth;
         tileTown.board.piecePadding = 0;
