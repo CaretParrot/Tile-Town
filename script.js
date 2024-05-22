@@ -334,6 +334,7 @@ let tileTown = {
     },
     resetBoard: function () {
         tileTown.removeAllPieces();
+        tileTown.updateSizing();
         tileTown.addAllPieces();
     }
 }
