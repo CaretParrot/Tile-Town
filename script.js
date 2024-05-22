@@ -63,9 +63,17 @@ let tileTown = {
             tileTown.board.size = +idTree.chessBoard.getAttribute("height");
         }
 
+        let tiles = document.getElementsByClassName("tile");
+
+        
+
         tileTown.board.squareWidth = +tileTown.board.size / 8;
         tileTown.board.pieceWidth = +tileTown.board.squareWidth;
         tileTown.board.piecePadding = 0;
+
+        for (let i = 0; i < tiles.length; i++) {
+            tiles[i].width = tileTown.board.squareWidth;
+        }
     },
     addAllPieces: function () {
         for (let i = 0; i < 8; i++) {
