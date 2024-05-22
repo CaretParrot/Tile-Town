@@ -2,7 +2,7 @@ setupTree();
 
 let tileTown = {
     board: {
-        size: document.getElementById("chessBoard").offsetWidth,
+        size: document.getElementById("chessBoard").width,
         squareWidth: null,
         pieceWidth: null,
         piecePadding: null,
