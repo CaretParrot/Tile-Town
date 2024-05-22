@@ -54,12 +54,8 @@ let tileTown = {
     },
     updateSizing: function () {
         if (window.innerWidth < window.innerHeight) {
-            idTree.chessBoard.setAttribute("width", fullWidth);
-            idTree.chessBoard.setAttribute("height", fullWidth);
             tileTown.board.size = +idTree.chessBoard.getAttribute("width");
         } else {
-            idTree.chessBoard.setAttribute("width", fullHeight);
-            idTree.chessBoard.setAttribute("height", fullHeight);
             tileTown.board.size = +idTree.chessBoard.getAttribute("height");
         }
 
