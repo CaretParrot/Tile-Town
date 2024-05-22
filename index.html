@@ -13,17 +13,13 @@
                 justify-content: center;
                 text-align: center;
             }
-
-            svg, div {
-                align-items: center;
-            }
         </style>
         <script defer src="https://caretparrot.github.io/My-Libraries/gpl.js"></script>
         <script defer src="script.js"></script>
     </head>
 
     <body>
-        <svg id="chessBoard" style="padding: 0; margin: 0; border-radius: 0; background-color: transparent;"></svg>
+        <svg id="chessBoard" style="flex-grow: 1; padding: 0; margin: 0; border-radius: 0; background-color: transparent;"></svg>
         <div style="flex-flow: column wrap;">
             <textarea placeholder="FEN" id="fenInput"></textarea>
             <input id="movePieceInput" placeholder="SAN Move Input">
