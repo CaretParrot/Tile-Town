@@ -384,3 +384,7 @@ idTree.movePieceInput.onkeydown = function (event) {
         idTree.movePieceInput.value = "";
     }
 }
+
+setInterval(function () {
+    tileTown.updateSizing();
+}, 100);
