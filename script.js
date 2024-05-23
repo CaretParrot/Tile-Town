@@ -62,7 +62,8 @@ let tileTown = {
         tileTown.board.piecePadding = 0;
 
         for (let i = 0; i < tiles.length; i++) {
-            tiles[i].width = tileTown.board.squareWidth;
+            tiles[i].setAttribute("width", tileTown.board.squareWidth);
+            tiles[i].setAttribute("height", tileTown.board.squareWidth);
         }
     },
     addAllPieces: function () {
