@@ -3,15 +3,15 @@ setupTree();
 let tileTown = {
     board: {
         size: null,
-        squareWidth: null,
-        pieceWidth: null,
+        squareSize: null,
+        pieceSize: null,
         piecePadding: null,
         selectedPieceId: "",
         lightSquareColor: "White",
         darkSquareColor: "hsl(240, 50%, 50%)"
     },
     Piece: function (href, square, newId, newClass) {
-        idTree.chessBoard.innerHTML += `<image class="${newClass}" href="${href}" id="${newId}" onmousedown="clickPieceHandler(document.getElementById('${newId}'))" width="${tileTown.board.pieceWidth}" height="${tileTown.board.pieceWidth}"/>`;
+        idTree.chessBoard.innerHTML += `<image class="${newClass}" href="${href}" id="${newId}" onmousedown="clickPieceHandler(document.getElementById('${newId}'))" width="${tileTown.board.pieceSize}" height="${tileTown.board.pieceSize}"/>`;
         tileTown.movePiece(id(newId), square);
         this.coordinate = square;
     },
@@ -59,18 +59,18 @@ let tileTown = {
         tileTown.board.size = document.getElementById("wrapper").getAttribute("width");
         document.getElementById("chessBoard").setAttribute("width", tileTown.board.size);
         document.getElementById("chessBoard").setAttribute("height", tileTown.board.size);
-        tileTown.board.squareWidth = +tileTown.board.size / 8;
-        tileTown.board.pieceWidth = +tileTown.board.squareWidth;
+        tileTown.board.squareSize = +tileTown.board.size / 8;
+        tileTown.board.pieceSize = +tileTown.board.squareSize;
         tileTown.board.piecePadding = 0;
 
         for (let i = 0; i < tiles.length; i++) {
-            tiles[i].setAttribute("width", tileTown.board.squareWidth);
-            tiles[i].setAttribute("height", tileTown.board.squareWidth);
+            tiles[i].setAttribute("width", tileTown.board.squareSize);
+            tiles[i].setAttribute("height", tileTown.board.squareSize);
         }
 
         for (let i = 0; i < pieces.length; i++) {
-            pieces[i].setAttribute("width", tileTown.board.pieceWidth);
-            pieces[i].setAttribute("height", tileTown.board.pieceWidth);
+            pieces[i].setAttribute("width", tileTown.board.pieceSize);
+            pieces[i].setAttribute("height", tileTown.board.pieceSize);
         }
     },
     addAllPieces: function () {
@@ -114,9 +114,9 @@ let tileTown = {
             for (let i = 0; i < 8; i++) {
                 let newFile = tileTown.numberToFile(i);
                 if ((j + i) % 2 === 1) {
-                    idTree.chessBoard.innerHTML += `<rect id="${newFile}${Math.abs(j - 8)}" onmousedown="clickTileHandler(document.getElementById('${newFile}${Math.abs(j - 8)}'))" class="tile" width="${tileTown.board.squareWidth}" height="${tileTown.board.squareWidth}" fill="${tileTown.board.darkSquareColor}" x="${i * tileTown.board.squareWidth}" y="${j * tileTown.board.squareWidth}"></rect>`;
+                    idTree.chessBoard.innerHTML += `<rect id="${newFile}${Math.abs(j - 8)}" onmousedown="clickTileHandler(document.getElementById('${newFile}${Math.abs(j - 8)}'))" class="tile" width="${tileTown.board.squareSize}" height="${tileTown.board.squareSize}" fill="${tileTown.board.darkSquareColor}" x="${i * tileTown.board.squareSize}" y="${j * tileTown.board.squareSize}"></rect>`;
                 } else {
-                    idTree.chessBoard.innerHTML += `<rect id="${newFile}${Math.abs(j - 8)}" onmousedown="clickTileHandler(document.getElementById('${newFile}${Math.abs(j - 8)}'))" class="tile" width="${tileTown.board.squareWidth}" height="${tileTown.board.squareWidth}" fill="${tileTown.board.lightSquareColor}" x="${i * tileTown.board.squareWidth}" y="${j * tileTown.board.squareWidth}"></rect>`;
+                    idTree.chessBoard.innerHTML += `<rect id="${newFile}${Math.abs(j - 8)}" onmousedown="clickTileHandler(document.getElementById('${newFile}${Math.abs(j - 8)}'))" class="tile" width="${tileTown.board.squareSize}" height="${tileTown.board.squareSize}" fill="${tileTown.board.lightSquareColor}" x="${i * tileTown.board.squareSize}" y="${j * tileTown.board.squareSize}"></rect>`;
                 }
             }
         }
