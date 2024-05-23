@@ -56,6 +56,7 @@ let tileTown = {
         let tiles = document.getElementsByClassName("tile");
 
         tileTown.board.size = document.getElementById("wrapper").style.width.slice(0, -2);
+        alert(tileTown.board.size);
         document.getElementById("chessBoard").setAttribute("width", tileTown.board.size + "px");
         tileTown.board.squareWidth = +tileTown.board.size / 8;
         tileTown.board.pieceWidth = +tileTown.board.squareWidth;
