@@ -68,8 +68,8 @@ let tileTown = {
         }
 
         for (let i = 0; i < pieces.length; i++) {
-            tiles[i].setAttribute("width", tileTown.board.pieceWidth);
-            tiles[i].setAttribute("height", tileTown.board.pieceWidth);
+            pieces[i].setAttribute("width", tileTown.board.pieceWidth);
+            pieces[i].setAttribute("height", tileTown.board.pieceWidth);
         }
     },
     addAllPieces: function () {
