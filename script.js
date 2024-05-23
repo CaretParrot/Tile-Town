@@ -54,6 +54,7 @@ let tileTown = {
     },
     updateSizing: function () {
         let tiles = document.getElementsByClassName("tile");
+        let pieces = document.getElementsByClassName("piece");
 
         tileTown.board.size = document.getElementById("wrapper").style.width.slice(0, -2);
         document.getElementById("chessBoard").setAttribute("width", tileTown.board.size + "px");
@@ -64,6 +65,11 @@ let tileTown = {
         for (let i = 0; i < tiles.length; i++) {
             tiles[i].setAttribute("width", tileTown.board.squareWidth);
             tiles[i].setAttribute("height", tileTown.board.squareWidth);
+        }
+
+        for (let i = 0; i < pieces.length; i++) {
+            tiles[i].setAttribute("width", tileTown.board.pieceWidth);
+            tiles[i].setAttribute("height", tileTown.board.pieceWidth);
         }
     },
     addAllPieces: function () {
