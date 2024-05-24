@@ -329,6 +329,8 @@ let tileTown = {
                 if (allPieces[i].id.includes(san.slice(2))) {
                     tileTown.removePiece(allPieces[i]);
                 }
+            }
+            for (let i = 0; i < allPieces.length; i++) {
                 if (allPieces[i].id.includes(san.slice(0, 2))) {
                     tileTown.movePiece(id(allPieces[i].id), san.slice(2));
                     break;
