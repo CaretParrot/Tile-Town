@@ -62,8 +62,6 @@ let tileTown = {
         tileTown.board.squareSize = +tileTown.board.size / 8;
         tileTown.board.pieceSize = +tileTown.board.squareSize;
         tileTown.board.piecePadding = 0;
-        idTree.chessBoard.innerHTML = "";
-        tileTown.createBoard();
 
         for (let i = 0; i < pieces.length; i++) {
             pieces[i].setAttribute("width", tileTown.board.pieceSize);
