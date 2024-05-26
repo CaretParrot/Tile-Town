@@ -3,9 +3,9 @@ setupTree();
 let tileTown = {
     board: {
         size: +document.getElementById("wrapper").offsetWidth,
-        squareSize: null,
-        pieceSize: null,
-        piecePadding: null,
+        squareSize: +document.getElementById("wrapper").offsetWidth / 8,
+        pieceSize: +document.getElementById("wrapper").offsetWidth / 8,
+        piecePadding: 0,
         selectedPieceId: "",
         lightSquareColor: "White",
         darkSquareColor: "hsl(240, 50%, 50%)"
@@ -55,13 +55,6 @@ let tileTown = {
     updateSizing: function () {
         let tiles = document.getElementsByClassName("tile");
         let pieces = document.getElementsByClassName("piece");
-
-        tileTown.board.size = +document.getElementById("wrapper").style.width.slice(0, -2);
-        document.getElementById("chessBoard").style.width = tileTown.board.size;
-        document.getElementById("chessBoard").style.height = tileTown.board.size;
-        tileTown.board.squareSize = +tileTown.board.size / 8;
-        tileTown.board.pieceSize = +tileTown.board.squareSize;
-        tileTown.board.piecePadding = 0;
 
         for (let i = 0; i < pieces.length; i++) {
             pieces[i].setAttribute("width", tileTown.board.pieceSize);
