@@ -74,6 +74,11 @@ let tileTown = {
             this.createPiece("./assets/pawn-w.svg", `${newFile}2`, `whitePawn${newFile.toUpperCase()}`, "white pawn piece", "white", "pawn");
             this.createPiece("./assets/pawn-b.svg", `${newFile}7`, `blackPawn${newFile.toUpperCase()}`, "black pawn piece", "black", "pawn");
         }
+
+        this.createPiece("./assets/knight-w.svg", `b1`, `whiteKnight1`, "white knight piece", "white", "knight");
+        this.createPiece("./assets/knight-w.svg", `g1`, `whiteKnight2`, "white knight piece", "white", "knight");
+        this.createPiece("./assets/knight-b.svg", `b8`, `blackKnight1`, "black knight piece", "black", "knight");
+        this.createPiece("./assets/knight-b.svg", `g8`, `blackKnight2`, "black knight piece", "black", "knight");
         
         setupTree();
     },
