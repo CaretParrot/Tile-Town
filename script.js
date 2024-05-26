@@ -84,6 +84,16 @@ let tileTown = {
         this.createPiece(`h1`, `whiteRook2`, "white", "rook");
         this.createPiece(`a8`, `blackRook1`, "black", "rook");
         this.createPiece(`h8`, `blackRook2`, "black", "rook");
+
+        this.createPiece(`c1`, `whiteBishop1`, "white", "bishop");
+        this.createPiece(`f1`, `whiteBishop2`, "white", "bishop");
+        this.createPiece(`c8`, `blackBishop1`, "black", "bishop");
+        this.createPiece(`f8`, `blackBishop2`, "black", "bishop");
+
+        this.createPiece(`d1`, `whiteQueen1`, "white", "queen");
+        this.createPiece(`e1`, `whiteKing1`, "white", "king");
+        this.createPiece(`c8`, `blackQueen1`, "black", "queen");
+        this.createPiece(`f8`, `blackKing1`, "black", "king");
         
         setupTree();
     },
