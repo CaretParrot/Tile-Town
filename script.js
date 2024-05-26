@@ -71,8 +71,10 @@ let tileTown = {
     addAllPieces: function () {
         for (let i = 0; i < 8; i++) {
             let newFile = tileTown.numberToFile(i);
+            this.createPiece("./assets/pawn-w.svg", `${newFile}2`, `whitePawn${newFile.toUpperCase()}`, "white pawn piece", "white", "pawn");
+            this.createPiece("./assets/pawn-b.svg", `${newFile}7`, `blackPawn${newFile.toUpperCase()}`, "black pawn piece", "black", "pawn");
         }
-
+        
         setupTree();
     },
     createBoard: function () {
