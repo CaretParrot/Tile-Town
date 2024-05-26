@@ -2,7 +2,7 @@ setupTree();
 
 let tileTown = {
     board: {
-        size: +document.getElementById("wrapper").style.width.slice(0, -2),
+        size: +document.getElementById("wrapper").offsetWidth,
         squareSize: null,
         pieceSize: null,
         piecePadding: null,
