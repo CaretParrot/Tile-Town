@@ -56,6 +56,9 @@ let tileTown = {
         let tiles = document.getElementsByClassName("tile");
         let pieces = document.getElementsByClassName("piece");
 
+        tileTown.board.size = +document.getElementById("wrapper").offsetWidth;
+        tileTown.board.squareSize =  +document.getElementById("wrapper").offsetWidth / 8,
+        tileTown.board.pieceSize = +document.getElementById("wrapper").offsetWidth / 8,
         document.getElementById("chessBoard").width = tileTown.board.size;
         document.getElementById("chessBoard").height = tileTown.board.size;
     },
