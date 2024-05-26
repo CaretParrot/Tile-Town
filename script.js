@@ -10,8 +10,8 @@ let tileTown = {
         lightSquareColor: "White",
         darkSquareColor: "hsl(240, 50%, 50%)"
     },
-    createPiece: function (imageHref, square, newId, newClass, color, pieceType) {
-        idTree.chessBoard.innerHTML += `<image data-piece="${pieceType}" data-color="${color}" class="${newClass}" href="${imageHref}" id="${newId}" onmousedown="clickPieceHandler(document.getElementById('${newId}'))" width="${tileTown.board.pieceSize}" height="${tileTown.board.pieceSize}"/>`;
+    createPiece: function (square, newId, color, pieceType) {
+        idTree.chessBoard.innerHTML += `<image data-piece="${pieceType}" data-color="${color}" class="${pieceType} ${color} piece" href="./assets/${pieceType}-${color.slice(0, 1)}.svg" id="${newId}" onmousedown="clickPieceHandler(document.getElementById('${newId}'))" width="${tileTown.board.pieceSize}" height="${tileTown.board.pieceSize}"/>`;
         tileTown.movePiece(id(newId), square);
     },
     movePiece: function (object, square) {
@@ -71,14 +71,19 @@ let tileTown = {
     addAllPieces: function () {
         for (let i = 0; i < 8; i++) {
             let newFile = tileTown.numberToFile(i);
-            this.createPiece("./assets/pawn-w.svg", `${newFile}2`, `whitePawn${newFile.toUpperCase()}`, "white pawn piece", "white", "pawn");
-            this.createPiece("./assets/pawn-b.svg", `${newFile}7`, `blackPawn${newFile.toUpperCase()}`, "black pawn piece", "black", "pawn");
+            this.createPiece(`${newFile}2`, `whitePawn${newFile.toUpperCase()}`, "white", "pawn");
+            this.createPiece(`${newFile}7`, `blackPawn${newFile.toUpperCase()}`, "black", "pawn");
         }
 
-        this.createPiece("./assets/knight-w.svg", `b1`, `whiteKnight1`, "white knight piece", "white", "knight");
-        this.createPiece("./assets/knight-w.svg", `g1`, `whiteKnight2`, "white knight piece", "white", "knight");
-        this.createPiece("./assets/knight-b.svg", `b8`, `blackKnight1`, "black knight piece", "black", "knight");
-        this.createPiece("./assets/knight-b.svg", `g8`, `blackKnight2`, "black knight piece", "black", "knight");
+        this.createPiece(`b1`, `whiteKnight1`, "white", "knight");
+        this.createPiece(`g1`, `whiteKnight2`, "white", "knight");
+        this.createPiece(`b8`, `blackKnight1`, "black", "knight");
+        this.createPiece(`g8`, `blackKnight2`, "black", "knight");
+
+        this.createPiece(`a1`, `whiteRook1`, "white", "rook");
+        this.createPiece(`h1`, `whiteRook2`, "white", "rook");
+        this.createPiece(`a8`, `blackRook1`, "black", "rook");
+        this.createPiece(`h8`, `blackRook2`, "black", "rook");
         
         setupTree();
     },
