@@ -28,7 +28,17 @@
             }
 
             #wrapper {
-                min-width: 500px;
+                resize: horizontal;
+                padding: 0;
+                display: block;
+            }
+
+            #chessBoard {
+                width: 500px;
+                padding: 0;
+                margin: 0;
+                border-radius: 0;
+                background-color: transparent;
             }
         </style>
         <script defer src="https://caretparrot.github.io/My-Libraries/gpl.js"></script>
@@ -36,8 +46,8 @@
     </head>
 
     <body>
-        <div id="wrapper" onmousedown="tileTown.updateSizing()" style="resize: horizontal; width: 500px; padding: 0; display: block;">
-            <svg id="chessBoard" style="width: 500px;  padding: 0; margin: 0; border-radius: 0; background-color: transparent;"></svg>
+        <div id="wrapper" onmousedown="tileTown.updateSizing()">
+            <svg id="chessBoard"></svg>
         </div>
         <div style="flex-flow: column wrap;">
             <textarea placeholder="FEN" id="fenInput"></textarea>
