@@ -17,7 +17,6 @@ let tileTown = {
     movePiece: function (object, square) {
         object.setAttribute("x", +idTree[square].getAttribute("x") + tileTown.board.piecePadding);
         object.setAttribute("y", +idTree[square].getAttribute("y") + tileTown.board.piecePadding);
-        object.setAttribute("id", `${object.id.slice(0, -2)}${square}`);
         object.setAttribute("data-coordinate", square);
         object.setAttribute("onmousedown", `clickPieceHandler(document.getElementById('${object.id.slice(0, -2)}${square}'))`);
         setupTree();
@@ -121,6 +120,7 @@ let tileTown = {
             }
             switch (positionFen[i]) {
                 case "r":
+
                     break;
                 case "n":
                     break;
