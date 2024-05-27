@@ -66,6 +66,8 @@ let tileTown = {
         for (let i = 0; i < tiles.length; i++) {
             tiles[i].setAttribute("width", tileTown.board.squareSize);
             tiles[i].setAttribute("height", tileTown.board.squareSize);
+            let modulus = tiles[i].getAttribute("x") % tileTown.board.squareSize;
+            console.log(modulus);
         }
 
         for (let i = 0; i < pieces.length; i++) {
