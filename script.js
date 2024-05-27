@@ -181,12 +181,12 @@ let tileTown = {
         let allPieces = document.getElementsByClassName("piece");
         if (san.length === 4) {
             for (let i = 0; i < allPieces.length; i++) {
-                if (allPieces[i].id.includes(san.slice(2))) {
+                if (allPieces[i]["data-coordinate"].includes(san.slice(2))) {
                     tileTown.removePiece(allPieces[i]);
                 }
             }
             for (let i = 0; i < allPieces.length; i++) {
-                if (allPieces[i].id.includes(san.slice(0, 2))) {
+                if (allPieces[i]["data-coordinate"].includes(san.slice(0, 2))) {
                     tileTown.movePiece(id(allPieces[i].id), san.slice(2));
                     break;
                 }
