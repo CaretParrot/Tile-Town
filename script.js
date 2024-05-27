@@ -53,28 +53,7 @@ let tileTown = {
         }
     },
     updateSizing: function () {
-        let tiles = document.getElementsByClassName("tile");
-        let pieces = document.getElementsByClassName("piece");
-
-        tileTown.board.size = +document.getElementById("wrapper").offsetWidth;
-        tileTown.board.squareSize =  +document.getElementById("wrapper").offsetWidth / 8,
-        tileTown.board.pieceSize = +document.getElementById("wrapper").offsetWidth / 8,
-            
-        document.getElementById("chessBoard").width = tileTown.board.size;
-        document.getElementById("chessBoard").height = tileTown.board.size;
-
-        for (let i = 0; i < tiles.length; i++) {
-            tiles[i].setAttribute("width", tileTown.board.squareSize);
-            tiles[i].setAttribute("height", tileTown.board.squareSize);
-            let modulus = tiles[i].getAttribute("x") % tileTown.board.squareSize;
-            console.log(modulus);
-        }
-
-        for (let i = 0; i < pieces.length; i++) {
-            pieces[i].setAttribute("width", tileTown.board.pieceSize);
-            pieces[i].setAttribute("height", tileTown.board.pieceSize);
-        }
-
+        
     },
     addAllPieces: function () {
         for (let i = 0; i < 8; i++) {
