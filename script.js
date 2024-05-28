@@ -215,8 +215,7 @@ function clickPieceHandler(object) {
     } else if (tileTown.board.selectedPieceId === object.id) {
         tileTown.board.selectedPieceId = "";
     } else if (tileTown.board.selectedPieceId !== object.id) {
-        console.log(object["data-coordinate"]);
-        tileTown.movePiece(id(tileTown.board.selectedPieceId), object["data-coordinate"]);
+        tileTown.movePiece(id(tileTown.board.selectedPieceId), object.getAttribute["data-coordinate"]);
         tileTown.removePiece(object);
         tileTown.board.selectedPieceId = "";
     }
