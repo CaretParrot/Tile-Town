@@ -18,7 +18,6 @@ let tileTown = {
         object.setAttribute("x", +idTree[square].getAttribute("x") + tileTown.board.piecePadding);
         object.setAttribute("y", +idTree[square].getAttribute("y") + tileTown.board.piecePadding);
         object.setAttribute("data-coordinate", square);
-        object.setAttribute("onmousedown", `clickPieceHandler(document.getElementById('${object.id.slice(0, -2)}${square}'))`);
         setupTree();
     },
     numberToFile: function (number) {
