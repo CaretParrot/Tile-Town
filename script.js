@@ -15,8 +15,8 @@ let tileTown = {
         tileTown.movePiece(id(newId), square);
     },
     movePiece: function (object, square) {
-        object.setAttribute("x", +idTree[square].getAttribute("x") + tileTown.board.piecePadding);
-        object.setAttribute("y", +idTree[square].getAttribute("y") + tileTown.board.piecePadding);
+        object.setAttribute("x", +id(square).getAttribute("x") + tileTown.board.piecePadding);
+        object.setAttribute("y", +id(square).getAttribute("y") + tileTown.board.piecePadding);
         object.setAttribute("data-coordinate", square);
         setupTree();
     },
