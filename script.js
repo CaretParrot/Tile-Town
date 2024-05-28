@@ -11,7 +11,7 @@ let tileTown = {
         darkSquareColor: "hsl(240, 50%, 50%)"
     },
     createPiece: function (square, newId, color, pieceType) {
-        idTree.chessBoard.innerHTML += `<image data-piece="${pieceType}" data-color="${color}" class="${pieceType} ${color} piece" href="./assets/${pieceType}-${color.slice(0, 1)}.svg" id="${newId}" onmousedown="clickPieceHandler(document.getElementById('${newId}'))" width="${tileTown.board.pieceSize}" height="${tileTown.board.pieceSize}"/>`;
+        idTree.chessBoard.innerHTML += `<image data-coordinate="${square}" data-piece="${pieceType}" data-color="${color}" class="${pieceType} ${color} piece" href="./assets/${pieceType}-${color.slice(0, 1)}.svg" id="${newId}" onmousedown="clickPieceHandler(document.getElementById('${newId}'))" width="${tileTown.board.pieceSize}" height="${tileTown.board.pieceSize}"/>`;
         tileTown.movePiece(id(newId), square);
     },
     movePiece: function (object, square) {
