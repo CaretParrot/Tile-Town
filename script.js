@@ -2,9 +2,9 @@ setupTree();
 
 let tileTown = {
     board: {
-        size: document.getElementById("wrapper").offsetWidth,
-        squareSize: document.getElementById("wrapper").offsetWidth / 8,
-        pieceSize: document.getElementById("wrapper").offsetWidth / 8,
+        size: document.getElementById("chessBoard").offsetWidth,
+        squareSize: document.getElementById("chessBoard").offsetWidth / 8,
+        pieceSize: document.getElementById("chessBoard").offsetWidth / 8,
         piecePadding: 0,
         selectedPieceId: "",
         lightSquareColor: "White",
@@ -51,7 +51,7 @@ let tileTown = {
         }
     },
     updateSizing: function () {
-        tileTown.board.size = document.getElementById("wrapper").offsetWidth;
+        tileTown.board.size = document.getElementById("chessBoard").offsetWidth;
     },
     addAllPieces: function () {
         for (let i = 0; i < 8; i++) {
