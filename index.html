@@ -48,6 +48,10 @@
                 align-items: stretch;
                 justify-content: stretch;
             }
+
+            #fenOutput {
+                background-color: hsl(0, 0%, 20%);
+            }
         </style>
         <script defer src="https://caretparrot.github.io/My-Libraries/gpl.js"></script>
         <script defer src="script.js"></script>
@@ -58,9 +62,11 @@
             <svg id="chessBoard"></svg>
         </div>
         <div style="flex-flow: column wrap;">
-            <textarea placeholder="FEN" id="fenInput"></textarea>
+            <textarea placeholder="FEN Input" id="fenInput"></textarea>
             <input id="movePieceInput" placeholder="SAN Move Input">
             <button onclick="tileTown.resetBoard()">Reset Board</button>
+            <button onclick="document.getElementById(`fenOutput`).innerHTML = tileTown.outputFen();">Output Fen</button>
+            <textarea id="fenOutput" placeholder="FEN Output" disabled></textarea>
         </div>
     </body>
 

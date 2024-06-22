@@ -119,7 +119,6 @@ let tileTown = {
             }
             switch (positionFen[i]) {
                 case "r":
-
                     break;
                 case "n":
                     break;
@@ -198,6 +197,67 @@ let tileTown = {
         tileTown.removeAllPieces();
         tileTown.updateSizing();
         tileTown.addAllPieces();
+    },
+    outputFen: function () {
+        let outputFENString = "";
+        let coordinateSelector = "";
+        let allPieces = document.getElementsByClassName("piece");
+        for (let i = 8; i >= 1; i--) {
+            for (let j = 0; j < 8; j++) {
+                coordinateSelector = `${tileTown.numberToFile(j)}${i}`;
+                for (let k = 0; k < allPieces.length; k++) {
+                    if (allPieces[k].getAttribute("data-coordinate") === coordinateSelector) {
+                        switch (allPieces[k].getAttribute("data-piece")) {
+                            case "rook":
+                                if (allPieces[k].getAttribute("data-color") === "white") {
+                                    outputFENString += "R";
+                                } else {
+                                    outputFENString += "r";
+                                }
+                                break;
+                            case "knight":
+                                if (allPieces[k].getAttribute("data-color") === "white") {
+                                    outputFENString += "N";
+                                } else {
+                                    outputFENString += "n";
+                                }
+                                break;
+                            case "bishop":
+                                if (allPieces[k].getAttribute("data-color") === "white") {
+                                    outputFENString += "B";
+                                } else {
+                                    outputFENString += "b";
+                                }
+                                break;
+                            case "queen":
+                                if (allPieces[k].getAttribute("data-color") === "white") {
+                                    outputFENString += "Q";
+                                } else {
+                                    outputFENString += "q";
+                                }
+                                break;
+                            case "king":
+                                if (allPieces[k].getAttribute("data-color") === "white") {
+                                    outputFENString += "K";
+                                } else {
+                                    outputFENString += "k";
+                                }
+                                break;
+                            case "pawn":
+                                if (allPieces[k].getAttribute("data-color") === "white") {
+                                    outputFENString += "P";
+                                } else {
+                                    outputFENString += "p";
+                                }
+                                break;
+                        }
+                    } else {
+                        console.log(coordinateSelector);
+                    }
+                }
+            }
+        }
+        return outputFENString;
     }
 }
 
