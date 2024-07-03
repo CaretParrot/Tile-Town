@@ -52,6 +52,7 @@ let tileTown = {
     },
     updateSizing: function () {
         tileTown.board.size = document.getElementById("wrapper").offsetHeight;
+        document.getElementById("chessBoard").setAttribute("viewBox", `0, 0, ${tileTown.board.size}, ${tileTown.board.size}`);
     },
     addAllPieces: function () {
         for (let i = 0; i < 8; i++) {
