@@ -10,7 +10,9 @@ let tileTown = {
         lightSquareColor: "White",
         darkSquareColor: "hsl(240, 50%, 50%)"
     },
-    createPiece: function (square, newId, color, pieceType) {
+    createPiece: function (square, color, pieceType) {
+        let family = document.getElementsByClassName(`${pieceType} ${color} piece`);
+        let newId = `${color}${pieceType[0].toUpperCase()}${pieceType.slice(1)}${family.length + 1}`;
         idTree.chessBoard.innerHTML += `<image data-coordinate="${square}" data-piece="${pieceType}" data-color="${color}" class="${pieceType} ${color} piece" href="./assets/${pieceType}-${color.slice(0, 1)}.svg" id="${newId}" onmousedown="clickPieceHandler(document.getElementById('${newId}'))" width="${tileTown.board.pieceSize}" height="${tileTown.board.pieceSize}"/>`;
         tileTown.movePiece(id(newId), square);
     },
@@ -57,30 +59,30 @@ let tileTown = {
     addAllPieces: function () {
         for (let i = 0; i < 8; i++) {
             let newFile = tileTown.numberToFile(i);
-            this.createPiece(`${newFile}2`, `whitePawn${newFile.toUpperCase()}`, "white", "pawn");
-            this.createPiece(`${newFile}7`, `blackPawn${newFile.toUpperCase()}`, "black", "pawn");
+            this.createPiece(`${newFile}2`, "white", "pawn");
+            this.createPiece(`${newFile}7`, "black", "pawn");
         }
 
-        this.createPiece(`b1`, `whiteKnight1`, "white", "knight");
-        this.createPiece(`g1`, `whiteKnight2`, "white", "knight");
-        this.createPiece(`b8`, `blackKnight1`, "black", "knight");
-        this.createPiece(`g8`, `blackKnight2`, "black", "knight");
+        this.createPiece(`b1`, "white", "knight");
+        this.createPiece(`g1`, "white", "knight");
+        this.createPiece(`b8`, "black", "knight");
+        this.createPiece(`g8`, "black", "knight");
 
-        this.createPiece(`a1`, `whiteRook1`, "white", "rook");
-        this.createPiece(`h1`, `whiteRook2`, "white", "rook");
-        this.createPiece(`a8`, `blackRook1`, "black", "rook");
-        this.createPiece(`h8`, `blackRook2`, "black", "rook");
+        this.createPiece(`a1`, "white", "rook");
+        this.createPiece(`h1`, "white", "rook");
+        this.createPiece(`a8`, "black", "rook");
+        this.createPiece(`h8`, "black", "rook");
 
-        this.createPiece(`c1`, `whiteBishop1`, "white", "bishop");
-        this.createPiece(`f1`, `whiteBishop2`, "white", "bishop");
-        this.createPiece(`c8`, `blackBishop1`, "black", "bishop");
-        this.createPiece(`f8`, `blackBishop2`, "black", "bishop");
+        this.createPiece(`c1`, "white", "bishop");
+        this.createPiece(`f1`, "white", "bishop");
+        this.createPiece(`c8`, "black", "bishop");
+        this.createPiece(`f8`, "black", "bishop");
 
-        this.createPiece(`d1`, `whiteQueen1`, "white", "queen");
-        this.createPiece(`e1`, `whiteKing1`, "white", "king");
-        this.createPiece(`d8`, `blackQueen1`, "black", "queen");
-        this.createPiece(`e8`, `blackKing1`, "black", "king");
-        
+        this.createPiece(`d1`, "white", "queen");
+        this.createPiece(`e1`, "white", "king");
+        this.createPiece(`d8`, "black", "queen");
+        this.createPiece(`e8`, "black", "king");
+
         setupTree();
     },
     createBoard: function () {
@@ -120,28 +122,40 @@ let tileTown = {
             }
             switch (positionFen[i]) {
                 case "r":
+                    tileTown.createPiece(`${fileName}${rank}`, "black", "rook");
                     break;
                 case "n":
+                    tileTown.createPiece(`${fileName}${rank}`, "black", "knight");
                     break;
                 case "b":
+                    tileTown.createPiece(`${fileName}${rank}`, "black", "bishop");
                     break;
                 case "q":
+                    tileTown.createPiece(`${fileName}${rank}`, "black", "queen");
                     break;
                 case "k":
+                    tileTown.createPiece(`${fileName}${rank}`, "black", "king");
                     break;
                 case "p":
+                    tileTown.createPiece(`${fileName}${rank}`, "black", "pawn");
                     break;
                 case "R":
+                    tileTown.createPiece(`${fileName}${rank}`, "white", "rook");
                     break;
                 case "N":
+                    tileTown.createPiece(`${fileName}${rank}`, "white", "knight");
                     break;
                 case "B":
+                    tileTown.createPiece(`${fileName}${rank}`, "white", "bishop");
                     break;
                 case "Q":
+                    tileTown.createPiece(`${fileName}${rank}`, "white", "queen");
                     break;
                 case "K":
+                    tileTown.createPiece(`${fileName}${rank}`, "white", "king");
                     break;
                 case "P":
+                    tileTown.createPiece(`${fileName}${rank}`, "white", "pawn");
                     break;
                 default:
                     if (+positionFen[i] >= 1 && +positionFen[i] <= 7) {
