@@ -286,17 +286,17 @@ let tileTown = {
     flipBoard: function () {
         if (tileTown.board.whitesSide === true) {
             tileTown.board.whitesSide = false;
-            document.getElementById("chessBoard").style.rotate = "180deg";
+            document.getElementById("chessBoard").setAttribute("transform", "rotate(180)");
             let allPieces = document.getElementsByClassName("piece");
             for (let i = 0; i < allPieces.length; i++) {
-                allPieces[i].setAttribute("transform", "scale(1 -1)");
+                allPieces[i].setAttribute("transform", "rotate(180)");
             }
         } else {
             tileTown.board.whitesSide = true;
-            document.getElementById("chessBoard").style.rotate = "0deg";
+            document.getElementById("chessBoard").setAttribute("transform", "rotate(0)");
             let allPieces = document.getElementsByClassName("piece");
             for (let i = 0; i < allPieces.length; i++) {
-                allPieces[i].setAttribute("transform", "scale(-1 1)");
+                allPieces[i].setAttribute("transform", "rotate(0)");
             }
         }
     }
