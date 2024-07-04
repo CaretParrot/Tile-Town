@@ -8,12 +8,14 @@ let tileTown = {
         piecePadding: 0,
         selectedPieceId: "",
         lightSquareColor: "White",
-        darkSquareColor: "hsl(240, 50%, 50%)"
+        darkSquareColor: "hsl(240, 50%, 50%)",
+        whitesTurn: true,
+        whitesSide: true
     },
     createPiece: function (square, color, pieceType) {
         let family = document.getElementsByClassName(`${pieceType} ${color} piece`);
         let newId = `${color}${pieceType[0].toUpperCase()}${pieceType.slice(1)}${family.length + 1}`;
-        idTree.chessBoard.innerHTML += `<image data-coordinate="${square}" data-piece="${pieceType}" data-color="${color}" class="${pieceType} ${color} piece" href="./assets/${pieceType}-${color.slice(0, 1)}.svg" id="${newId}" onmousedown="clickPieceHandler(document.getElementById('${newId}'))" width="${tileTown.board.pieceSize}" height="${tileTown.board.pieceSize}"/>`;
+        idTree.chessBoard.innerHTML += `<image data-coordinate="${square}" data-piece="${pieceType}" data-color="${color}" class="${pieceType} ${color} piece" href="./assets/${pieceType}-${color.slice(0, 1)}.svg" id="${newId}" onmousedown="clickPieceHandler(document.getElementById('${newId}'))" width="${tileTown.board.pieceSize}" height="${tileTown.board.pieceSize}" style="transform-origin: 50% 50%;" />`;
         tileTown.movePiece(id(newId), square);
     },
     movePiece: function (object, square) {
@@ -174,8 +176,15 @@ let tileTown = {
         for (let i = 0; i < settingsFen.length; i++) {
             switch (settingsFen[i]) {
                 case "w":
+                    tileTown.whitesTurn = true;
+                    document.getElementById("turn").style.backgroundColor = "hsl(0, 0%, 90%)";
+                    document.getElementById("turn").style.color = "Black";
+                    document.getElementById("turn").innerHTML = "White to move...";
                     break;
                 case "b":
+                    document.getElementById("turn").style.backgroundColor = "hsl(0, 0%, 20%)";
+                    document.getElementById("turn").style.color = "White";
+                    document.getElementById("turn").innerHTML = "Black to move...";
                     break;
                 case "Q":
                     break;
@@ -273,6 +282,23 @@ let tileTown = {
             }
         }
         return outputFENString;
+    },
+    flipBoard: function () {
+        if (tileTown.board.whitesSide === true) {
+            tileTown.board.whitesSide = false;
+            document.getElementById("chessBoard").style.rotate = "180deg";
+            let allPieces = document.getElementsByClassName("piece");
+            for (let i = 0; i < allPieces.length; i++) {
+                allPieces[i].setAttribute("transform", "scale(1 -1)");
+            }
+        } else {
+            tileTown.board.whitesSide = true;
+            document.getElementById("chessBoard").style.rotate = "0deg";
+            let allPieces = document.getElementsByClassName("piece");
+            for (let i = 0; i < allPieces.length; i++) {
+                allPieces[i].setAttribute("transform", "scale(-1 1)");
+            }
+        }
     }
 }
 

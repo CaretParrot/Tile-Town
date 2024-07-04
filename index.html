@@ -53,6 +53,13 @@
             #fenOutput {
                 background-color: hsl(0, 0%, 20%);
             }
+
+            #turn {
+                justify-content: center;
+                align-items: center;
+                color: Black;
+                background-color: hsl(0, 0%, 90%);
+            }
         </style>
         <script defer src="https://caretparrot.github.io/My-Libraries/gpl.js"></script>
         <script defer src="script.js"></script>
@@ -63,6 +70,8 @@
             <svg id="chessBoard"></svg>
         </div>
         <div style="flex-flow: column wrap;">
+            <div id="turn">White to move...</div>
+            <button onclick="tileTown.flipBoard()">Flip Board</button>
             <textarea placeholder="FEN Input" id="fenInput"></textarea>
             <input id="movePieceInput" placeholder="SAN Move Input">
             <button onclick="tileTown.resetBoard()">Reset Board</button>
