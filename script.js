@@ -15,13 +15,14 @@ let tileTown = {
     createPiece: function (square, color, pieceType) {
         let family = document.getElementsByClassName(`${pieceType} ${color} piece`);
         let newId = `${color}${pieceType[0].toUpperCase()}${pieceType.slice(1)}${family.length + 1}`;
-        idTree.chessBoard.innerHTML += `<image data-coordinate="${square}" data-piece="${pieceType}" data-color="${color}" class="${pieceType} ${color} piece" href="./assets/${pieceType}-${color.slice(0, 1)}.svg" id="${newId}" onmousedown="clickPieceHandler(document.getElementById('${newId}'))" width="${tileTown.board.pieceSize}" height="${tileTown.board.pieceSize}" style="transform-origin: 50% 50%;" />`;
+        idTree.chessBoard.innerHTML += `<image data-coordinate="${square}" data-piece="${pieceType}" data-color="${color}" class="${pieceType} ${color} piece" href="./assets/${pieceType}-${color.slice(0, 1)}.svg" id="${newId}" onmousedown="clickPieceHandler(document.getElementById('${newId}'))" width="${tileTown.board.pieceSize}" height="${tileTown.board.pieceSize}" />`;
         tileTown.movePiece(id(newId), square);
     },
     movePiece: function (object, square) {
         object.setAttribute("x", +id(square).getAttribute("x") + tileTown.board.piecePadding);
         object.setAttribute("y", +id(square).getAttribute("y") + tileTown.board.piecePadding);
         object.setAttribute("data-coordinate", square);
+        object.style.transformOrigin = `50% 50%`;
         setupTree();
     },
     numberToFile: function (number) {
@@ -288,16 +289,10 @@ let tileTown = {
             tileTown.board.whitesSide = false;
             document.getElementById("chessBoard").setAttribute("transform", "rotate(180)");
             let allPieces = document.getElementsByClassName("piece");
-            for (let i = 0; i < allPieces.length; i++) {
-                allPieces[i].setAttribute("transform", "rotate(180)");
-            }
         } else {
             tileTown.board.whitesSide = true;
             document.getElementById("chessBoard").setAttribute("transform", "rotate(0)");
             let allPieces = document.getElementsByClassName("piece");
-            for (let i = 0; i < allPieces.length; i++) {
-                allPieces[i].setAttribute("transform", "rotate(0)");
-            }
         }
     }
 }
