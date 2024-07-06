@@ -29,28 +29,20 @@ let tileTown = {
         switch (number) {
             case 0:
                 return "a";
-                break;
             case 1:
                 return "b";
-                break;
             case 2:
                 return "c";
-                break;
             case 3:
                 return "d";
-                break;
             case 4:
                 return "e";
-                break;
             case 5:
                 return "f";
-                break;
             case 6:
                 return "g";
-                break;
             case 7:
                 return "h";
-                break;
             default:
                 break;
         }
@@ -226,12 +218,13 @@ let tileTown = {
     outputFen: function () {
         let outputFENString = "";
         let coordinateSelector = "";
+        let emptySpaces = 0;
         let allPieces = document.getElementsByClassName("piece");
         for (let i = 8; i >= 1; i--) {
             for (let j = 0; j < 8; j++) {
                 coordinateSelector = `${tileTown.numberToFile(j)}${i}`;
                 for (let k = 0; k < allPieces.length; k++) {
-                    if (allPieces[k].getAttribute("data-coordinate") === coordinateSelector) {
+                    if (coordinateSelector === allPieces[k].getAttribute("data-coordinate")) {
                         switch (allPieces[k].getAttribute("data-piece")) {
                             case "rook":
                                 if (allPieces[k].getAttribute("data-color") === "white") {
@@ -277,7 +270,11 @@ let tileTown = {
                                 break;
                         }
                     } else {
-                        console.log(coordinateSelector);
+                        emptySpaces++;
+                        if (j === 7) {
+                            outputFENString += `${emptySpaces}/`;
+                            emptySpaces = 0;
+                        }
                     }
                 }
             }
