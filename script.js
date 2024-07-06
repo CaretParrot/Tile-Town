@@ -19,10 +19,10 @@ let tileTown = {
         tileTown.movePiece(id(newId), square);
     },
     movePiece: function (object, square) {
+        let origin = `${object.getAttribute("x")} ${object.getAttribute("y")}`
         object.setAttribute("x", +id(square).getAttribute("x") + tileTown.board.piecePadding);
         object.setAttribute("y", +id(square).getAttribute("y") + tileTown.board.piecePadding);
         object.setAttribute("data-coordinate", square);
-        object.style.transformOrigin = `50% 50%`;
         setupTree();
     },
     numberToFile: function (number) {
@@ -93,9 +93,9 @@ let tileTown = {
             for (let i = 0; i < 8; i++) {
                 let newFile = tileTown.numberToFile(i);
                 if ((j + i) % 2 === 1) {
-                    idTree.chessBoard.innerHTML += `<rect id="${newFile}${Math.abs(j - 8)}" onmousedown="clickTileHandler(document.getElementById('${newFile}${Math.abs(j - 8)}'))" class="tile" width="${tileTown.board.squareSize}" height="${tileTown.board.squareSize}" fill="${tileTown.board.darkSquareColor}" x="${i * tileTown.board.squareSize}" y="${j * tileTown.board.squareSize}"></rect>`;
+                    idTree.chessBoard.innerHTML += `<rect id="${newFile}${Math.abs(j - 8)}" onmousedown="clickTileHandler(document.getElementById('${newFile}${Math.abs(j - 8)}'))" class="tile" width="${tileTown.board.squareSize}" height="${tileTown.board.squareSize}" fill="${tileTown.board.darkSquareColor}" x="${i * tileTown.board.squareSize}" y="${j * tileTown.board.squareSize}" style="transform-origin: 50% 50%;"></rect>`;
                 } else {
-                    idTree.chessBoard.innerHTML += `<rect id="${newFile}${Math.abs(j - 8)}" onmousedown="clickTileHandler(document.getElementById('${newFile}${Math.abs(j - 8)}'))" class="tile" width="${tileTown.board.squareSize}" height="${tileTown.board.squareSize}" fill="${tileTown.board.lightSquareColor}" x="${i * tileTown.board.squareSize}" y="${j * tileTown.board.squareSize}"></rect>`;
+                    idTree.chessBoard.innerHTML += `<rect id="${newFile}${Math.abs(j - 8)}" onmousedown="clickTileHandler(document.getElementById('${newFile}${Math.abs(j - 8)}'))" class="tile" width="${tileTown.board.squareSize}" height="${tileTown.board.squareSize}" fill="${tileTown.board.lightSquareColor}" x="${i * tileTown.board.squareSize}" y="${j * tileTown.board.squareSize}" style="transform-origin: 50% 50%;"></rect>`;
                 }
             }
         }
@@ -287,12 +287,24 @@ let tileTown = {
     flipBoard: function () {
         if (tileTown.board.whitesSide === true) {
             tileTown.board.whitesSide = false;
-            document.getElementById("chessBoard").setAttribute("transform", "rotate(180)");
+            let allTiles = document.getElementsByClassName("tile");
             let allPieces = document.getElementsByClassName("piece");
+            for (let i = 0; i < allTiles.length; i++) {
+                allTiles[i].setAttribute("transform", "rotate(180)");
+            }
+            for (let i = 0; i < allPieces.length; i++) { 
+                allPieces[i].setAttribute("transform", "rotate(180)");
+            }
         } else {
             tileTown.board.whitesSide = true;
-            document.getElementById("chessBoard").setAttribute("transform", "rotate(0)");
+            let allTiles = document.getElementsByClassName("tile");
             let allPieces = document.getElementsByClassName("piece");
+            for (let i = 0; i < allTiles.length; i++) {
+                allTiles[i].setAttribute("transform", "rotate(0)");
+            }
+            for (let i = 0; i < allPieces.length; i++) {
+                allPieces[i].setAttribute("transform", "rotate(0)");
+            }
         }
     }
 }
