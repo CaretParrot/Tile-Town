@@ -19,10 +19,10 @@ let tileTown = {
         tileTown.movePiece(id(newId), square);
     },
     movePiece: function (object, square) {
-        let origin = `${object.getAttribute("x")} ${object.getAttribute("y")}`
         object.setAttribute("x", +id(square).getAttribute("x") + tileTown.board.piecePadding);
         object.setAttribute("y", +id(square).getAttribute("y") + tileTown.board.piecePadding);
         object.setAttribute("data-coordinate", square);
+        object.style.setProperty("transform-origin", `50% 50%`, "important");
         setupTree();
     },
     numberToFile: function (number) {
@@ -292,7 +292,7 @@ let tileTown = {
             for (let i = 0; i < allTiles.length; i++) {
                 allTiles[i].setAttribute("transform", "rotate(180)");
             }
-            for (let i = 0; i < allPieces.length; i++) { 
+            for (let i = 0; i < allPieces.length; i++) {
                 allPieces[i].setAttribute("transform", "rotate(180)");
             }
         } else {
