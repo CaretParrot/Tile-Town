@@ -15,36 +15,25 @@
                 align-items: center;
                 justify-content: center;
                 text-align: center;
-                max-width: calc(100% - 2vmin);
             }
 
             body {
-                max-width: 100%;
+                display: flex;
+                flex-flow: column wrap;
+                width: 100%;
             }
 
             div {
-                flex-grow: 1;
-                max-width: 100%;
                 transition: none;
             }
 
             #wrapper {
                 resize: horizontal;
                 padding: 0;
-                width: 500px;
-                min-width: 100px;
-                height: calc(100% - 2vmin);
-                aspect-ratio: 1 / 1;
             }
 
             #chessBoard {
-                width: inherit;
-                aspect-ratio: 1 / 1;
-                height: 100%;
-                max-height: 100%;
-                padding: 0;
-                margin: 0;
-                border-radius: 0;
+                width: 50%;
                 background-color: transparent;
                 align-items: stretch;
                 justify-content: stretch;
@@ -55,8 +44,6 @@
             }
 
             #turn {
-                justify-content: center;
-                align-items: center;
                 color: Black;
                 background-color: hsl(0, 0%, 90%);
             }
@@ -69,7 +56,7 @@
         <div id="wrapper">
             <svg id="chessBoard"></svg>
         </div>
-        <div style="flex-flow: column wrap;">
+        <div style="flex-flow: column wrap;" id="sidebar">
             <div id="turn">White to move...</div>
             <button onclick="tileTown.flipBoard()">Flip Board</button>
             <textarea placeholder="FEN Input" id="fenInput"></textarea>
