@@ -38,10 +38,11 @@
             }
 
             #chessBoard {
-                width: 50%;
+                width: calc(50% - 1rem);
                 background-color: transparent;
                 align-items: stretch;
                 justify-content: stretch;
+                margin: 0;
             }
 
             #fenOutput {
@@ -51,6 +52,10 @@
             #turn {
                 color: Black;
                 background-color: hsl(0, 0%, 90%);
+            }
+
+            #sidebar * {
+                width: calc(100% - 1rem);
             }
         </style>
         <script defer src="https://caretparrot.github.io/My-Libraries/gpl.js"></script>

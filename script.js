@@ -196,13 +196,14 @@ let tileTown = {
         let allPieces = document.getElementsByClassName("piece");
         if (san.length === 4) {
             for (let i = 0; i < allPieces.length; i++) {
-                if (allPieces[i]["data-coordinate"].includes(san.slice(2))) {
+                console.log(allPieces[i].dataset.coordinate);
+                if (allPieces[i].dataset.coordinate.includes(san.slice(2))) {
                     tileTown.removePiece(allPieces[i]);
                 }
             }
             for (let i = 0; i < allPieces.length; i++) {
-                if (allPieces[i]["data-coordinate"].includes(san.slice(0, 2))) {
-                    tileTown.movePiece(id(allPieces[i].id), san.slice(2));
+                if (allPieces[i].dataset.coordinate.includes(san.slice(0, 2))) {
+                    tileTown.movePiece(document.getElementById(allPieces[i].id), san.slice(2));
                     break;
                 }
             }
@@ -224,45 +225,45 @@ let tileTown = {
             for (let j = 0; j < 8; j++) {
                 coordinateSelector = `${tileTown.numberToFile(j)}${i}`;
                 for (let k = 0; k < allPieces.length; k++) {
-                    if (coordinateSelector === allPieces[k].getAttribute("data-coordinate")) {
-                        switch (allPieces[k].getAttribute("data-piece")) {
+                    if (coordinateSelector === allPieces[k].dataset.coordinate) {
+                        switch (allPieces[k].dataset.piece) {
                             case "rook":
-                                if (allPieces[k].getAttribute("data-color") === "white") {
+                                if (allPieces[k].dataset.color === "white") {
                                     outputFENString += "R";
                                 } else {
                                     outputFENString += "r";
                                 }
                                 break;
                             case "knight":
-                                if (allPieces[k].getAttribute("data-color") === "white") {
+                                if (allPieces[k].dataset.color === "white") {
                                     outputFENString += "N";
                                 } else {
                                     outputFENString += "n";
                                 }
                                 break;
                             case "bishop":
-                                if (allPieces[k].getAttribute("data-color") === "white") {
+                                if (allPieces[k].dataset.color === "white") {
                                     outputFENString += "B";
                                 } else {
                                     outputFENString += "b";
                                 }
                                 break;
                             case "queen":
-                                if (allPieces[k].getAttribute("data-color") === "white") {
+                                if (allPieces[k].dataset.color === "white") {
                                     outputFENString += "Q";
                                 } else {
                                     outputFENString += "q";
                                 }
                                 break;
                             case "king":
-                                if (allPieces[k].getAttribute("data-color") === "white") {
+                                if (allPieces[k].dataset.color === "white") {
                                     outputFENString += "K";
                                 } else {
                                     outputFENString += "k";
                                 }
                                 break;
                             case "pawn":
-                                if (allPieces[k].getAttribute("data-color") === "white") {
+                                if (allPieces[k].dataset.color === "white") {
                                     outputFENString += "P";
                                 } else {
                                     outputFENString += "p";
@@ -333,16 +334,16 @@ function clickTileHandler(object) {
     }
 }
 
-idTree.fenInput.onkeydown = function (event) {
+document.getElementById("fenInput").onkeydown = function (event) {
     if (event.key === "Enter") {
-        tileTown.parseFen(idTree.fenInput.value);
+        tileTown.parseFen(document.getElementById("fenInput").value);
     }
 }
 
-idTree.movePieceInput.onkeydown = function (event) {
+document.getElementById("movePieceInput").onkeydown = function (event) {
     if (event.key === "Enter") {
-        tileTown.movePieceSAN(idTree.movePieceInput.value);
-        idTree.movePieceInput.value = "";
+        tileTown.movePieceSAN(document.getElementById("movePieceInput").value);
+        document.getElementById("movePieceInput").value = "";
     }
 }
 
