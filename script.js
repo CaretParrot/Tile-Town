@@ -7,6 +7,7 @@ let tileTown = {
         pieceSize: document.getElementById("wrapper").offsetHeight / 8,
         piecePadding: 0,
         selectedPieceId: "",
+        pieceToSpawn: "",
         lightSquareColor: "White",
         darkSquareColor: "hsl(240, 50%, 50%)",
         whitesTurn: true,
@@ -328,10 +329,20 @@ function clickPieceHandler(object) {
 }
 
 function clickTileHandler(object) {
-    if (tileTown.board.selectedPieceId !== "") {
-        tileTown.movePiece(id(tileTown.board.selectedPieceId), object.id);
-        tileTown.board.selectedPieceId = "";
+    if (tileTown.pieceToSpawn !== "") {
+        tileTown.createPiece(object.id, tileTown.pieceToSpawn[0], tileTown.pieceToSpawn[1]);
+        tileTown.pieceToSpawn = "";
+    } else {
+        if (tileTown.board.selectedPieceId !== "") {
+            tileTown.movePiece(id(tileTown.board.selectedPieceId), object.id);
+            tileTown.board.selectedPieceId = "";
+        }
     }
+    
+}
+
+function spawnPiece(color, piece) {
+    tileTown.pieceToSpawn = [color, piece];
 }
 
 document.getElementById("fenInput").onkeydown = function (event) {

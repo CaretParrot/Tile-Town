@@ -17,7 +17,21 @@
         <div id="wrapper">
             <svg id="chessBoard"></svg>
         </div>
-        <div style="flex-flow: column wrap;" id="sidebar">
+        <div id="pieceToolbar">
+            <button onclick="spawnPiece('white', 'pawn')">White Pawn</button>
+            <button onclick="spawnPiece('white', 'knight')">White Knight</button>
+            <button onclick="spawnPiece('white', 'bishop')">White Bishop</button>
+            <button onclick="spawnPiece('white', 'rook')">White Rook</button>
+            <button onclick="spawnPiece('white', 'queen')">White Queen</button>
+            <button onclick="spawnPiece('white', 'king')">White King</button>
+            <button onclick="spawnPiece('black', 'pawn')">Black Pawn</button>
+            <button onclick="spawnPiece('black', 'knight')">Black Knight</button>
+            <button onclick="spawnPiece('black', 'bishop')">Black Bishop</button>
+            <button onclick="spawnPiece('black', 'rook')">Black Rook</button>
+            <button onclick="spawnPiece('black', 'queen')">Black Queen</button>
+            <button onclick="spawnPiece('black', 'king')">Black King</button>
+        </div>
+        <div id="sidebar">
             <div id="turn">White to move...</div>
             <button onclick="tileTown.flipBoard()">Flip Board</button>
             <textarea placeholder="FEN Input" id="fenInput"></textarea>

@@ -47,4 +47,5 @@ div {
 
 #sidebar * {
     width: calc(100% - 1rem);
+    flex-flow: column wrap;
 }
