@@ -1,5 +1,7 @@
 # Tile-Town
 
+A feature-packed chess FEN viewer and board editor.
+
 Credits:
 - Chess Images (located in the assets folder): Uray M. János
   - © 2009-2024
