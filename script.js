@@ -197,7 +197,6 @@ let tileTown = {
         let allPieces = document.getElementsByClassName("piece");
         if (san.length === 4) {
             for (let i = 0; i < allPieces.length; i++) {
-                console.log(allPieces[i].dataset.coordinate);
                 if (allPieces[i].dataset.coordinate.includes(san.slice(2))) {
                     tileTown.removePiece(allPieces[i]);
                 }
@@ -227,6 +226,10 @@ let tileTown = {
                 coordinateSelector = `${tileTown.numberToFile(j)}${i}`;
                 for (let k = 0; k < allPieces.length; k++) {
                     if (coordinateSelector === allPieces[k].dataset.coordinate) {
+                        if (emptySpaces > 0) {
+                            outputFENString += `${emptySpaces}/`;
+                            emptySpaces = 0;
+                        }
                         switch (allPieces[k].dataset.piece) {
                             case "rook":
                                 if (allPieces[k].dataset.color === "white") {
@@ -273,7 +276,7 @@ let tileTown = {
                         }
                     } else {
                         emptySpaces++;
-                        if (j === 7) {
+                        if (j > 7) {
                             outputFENString += `${emptySpaces}/`;
                             emptySpaces = 0;
                         }
