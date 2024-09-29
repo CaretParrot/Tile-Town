@@ -338,7 +338,7 @@ function clickTileHandler(object) {
             tileTown.board.selectedPieceId = "";
         }
     }
-    
+
 }
 
 function spawnPiece(color, piece) {
