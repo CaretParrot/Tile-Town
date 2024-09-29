@@ -18,18 +18,18 @@
             <svg id="chessBoard"></svg>
         </div>
         <div id="pieceToolbar">
-            <button onclick="spawnPiece('white', 'pawn')">White Pawn</button>
-            <button onclick="spawnPiece('white', 'knight')">White Knight</button>
-            <button onclick="spawnPiece('white', 'bishop')">White Bishop</button>
-            <button onclick="spawnPiece('white', 'rook')">White Rook</button>
-            <button onclick="spawnPiece('white', 'queen')">White Queen</button>
-            <button onclick="spawnPiece('white', 'king')">White King</button>
-            <button onclick="spawnPiece('black', 'pawn')">Black Pawn</button>
-            <button onclick="spawnPiece('black', 'knight')">Black Knight</button>
-            <button onclick="spawnPiece('black', 'bishop')">Black Bishop</button>
-            <button onclick="spawnPiece('black', 'rook')">Black Rook</button>
-            <button onclick="spawnPiece('black', 'queen')">Black Queen</button>
-            <button onclick="spawnPiece('black', 'king')">Black King</button>
+            <button class="pieceButton" onclick="spawnPiece('white', 'pawn')"><img src="./assets/pawn-w.svg"></button>
+            <button class="pieceButton" onclick="spawnPiece('white', 'knight')"><img src="./assets/knight-w.svg"></button>
+            <button class="pieceButton" onclick="spawnPiece('white', 'bishop')"><img src="./assets/bishop-w.svg"></button>
+            <button class="pieceButton" onclick="spawnPiece('white', 'rook')"><img src="./assets/rook-w.svg"></button>
+            <button class="pieceButton" onclick="spawnPiece('white', 'queen')"><img src="./assets/queen-w.svg"></button>
+            <button class="pieceButton" onclick="spawnPiece('white', 'king')"><img src="./assets/king-w.svg"></button>
+            <button class="pieceButton dark" onclick="spawnPiece('black', 'pawn')"><img src="./assets/pawn-b.svg"></button>
+            <button class="pieceButton dark" onclick="spawnPiece('black', 'knight')"><img src="./assets/knight-b.svg"></button>
+            <button class="pieceButton dark" onclick="spawnPiece('black', 'bishop')"><img src="./assets/bishop-b.svg"></button>
+            <button class="pieceButton dark" onclick="spawnPiece('black', 'rook')"><img src="./assets/rook-b.svg"></button>
+            <button class="pieceButton dark" onclick="spawnPiece('black', 'queen')"><img src="./assets/queen-b.svg"></button>
+            <button class="pieceButton dark" onclick="spawnPiece('black', 'king')"><img src="./assets/king-b.svg"></button>
         </div>
         <div id="sidebar">
             <div id="turn">White to move...</div>

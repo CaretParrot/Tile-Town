@@ -7,7 +7,7 @@ let tileTown = {
         pieceSize: document.getElementById("wrapper").offsetHeight / 8,
         piecePadding: 0,
         selectedPieceId: "",
-        pieceToSpawn: "",
+        pieceToSpawn: [],
         lightSquareColor: "White",
         darkSquareColor: "hsl(240, 50%, 50%)",
         whitesTurn: true,
@@ -329,7 +329,7 @@ function clickPieceHandler(object) {
 }
 
 function clickTileHandler(object) {
-    if (tileTown.pieceToSpawn !== "") {
+    if (tileTown.pieceToSpawn !== undefined) {
         tileTown.createPiece(object.id, tileTown.pieceToSpawn[0], tileTown.pieceToSpawn[1]);
         tileTown.pieceToSpawn = "";
     } else {
