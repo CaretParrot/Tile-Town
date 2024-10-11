@@ -1,5 +1,3 @@
-setupTree();
-
 let tileTown = {
     board: {
         size: document.getElementById("wrapper").offsetHeight,
@@ -17,14 +15,13 @@ let tileTown = {
         let family = document.getElementsByClassName(`${pieceType} ${color} piece`);
         let newId = `${color}${pieceType[0].toUpperCase()}${pieceType.slice(1)}${family.length + 1}`;
         idTree.chessBoard.innerHTML += `<image data-coordinate="${square}" data-piece="${pieceType}" data-color="${color}" class="${pieceType} ${color} piece" href="./assets/${pieceType}-${color.slice(0, 1)}.svg" id="${newId}" onmousedown="clickPieceHandler(document.getElementById('${newId}'))" width="${tileTown.board.pieceSize}" height="${tileTown.board.pieceSize}" />`;
-        tileTown.movePiece(id(newId), square);
+        tileTown.movePiece(document.getElementById(newId), square);
     },
     movePiece: function (object, square) {
-        object.setAttribute("x", +id(square).getAttribute("x") + tileTown.board.piecePadding);
-        object.setAttribute("y", +id(square).getAttribute("y") + tileTown.board.piecePadding);
+        object.setAttribute("x", +document.getElementById(square).getAttribute("x") + tileTown.board.piecePadding);
+        object.setAttribute("y", +document.getElementById(square).getAttribute("y") + tileTown.board.piecePadding);
         object.setAttribute("data-coordinate", square);
         object.style.setProperty("transform-origin", `50% 50%`, "important");
-        setupTree();
     },
     numberToFile: function (number) {
         switch (number) {
@@ -78,8 +75,6 @@ let tileTown = {
         this.createPiece(`e1`, "white", "king");
         this.createPiece(`d8`, "black", "queen");
         this.createPiece(`e8`, "black", "king");
-
-        setupTree();
     },
     createBoard: function () {
         for (let j = 0; j < 8; j++) {
@@ -92,8 +87,6 @@ let tileTown = {
                 }
             }
         }
-
-        setupTree();
     },
     removePiece: function (piece) {
         piece.remove();
@@ -325,7 +318,7 @@ function clickPieceHandler(object) {
     } else if (tileTown.board.selectedPieceId === object.id) {
         tileTown.board.selectedPieceId = "";
     } else if (tileTown.board.selectedPieceId !== object.id) {
-        tileTown.movePiece(id(tileTown.board.selectedPieceId), object.getAttribute("data-coordinate"));
+        tileTown.movePiece(document.getElementById(tileTown.board.selectedPieceId), object.getAttribute("data-coordinate"));
         tileTown.removePiece(object);
         tileTown.board.selectedPieceId = "";
     }
@@ -337,7 +330,7 @@ function clickTileHandler(object) {
         tileTown.pieceToSpawn = "";
     } else {
         if (tileTown.board.selectedPieceId !== "") {
-            tileTown.movePiece(id(tileTown.board.selectedPieceId), object.id);
+            tileTown.movePiece(document.getElementById(tileTown.board.selectedPieceId), object.id);
             tileTown.board.selectedPieceId = "";
         }
     }
