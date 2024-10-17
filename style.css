@@ -35,10 +35,6 @@ div {
     margin: 0;
 }
 
-#fenOutput {
-    background-color: hsl(240, 20%, 20%);
-}
-
 #turn {
     color: Black;
     background-color: hsl(240, 90%, 90%);
@@ -68,4 +64,8 @@ img {
 
 .dark, .dark img {
     background-color: hsl(240, 90%, 90%);
+}
+
+.light, .light img {
+    background-color: hsl(240, 10%, 10%);
 }

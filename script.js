@@ -5,7 +5,7 @@ let tileTown = {
         pieceSize: document.getElementById("wrapper").offsetHeight / 8,
         piecePadding: 0,
         selectedPieceId: "",
-        pieceToSpawn: [],
+        pieceToSpawn: undefined,
         lightSquareColor: "White",
         darkSquareColor: "hsl(240, 50%, 50%)",
         whitesTurn: true,
@@ -313,21 +313,23 @@ onresize = function (event) {
 }
 
 function clickPieceHandler(object) {
-    if (tileTown.board.selectedPieceId === "") {
-        tileTown.board.selectedPieceId = object.id;
-    } else if (tileTown.board.selectedPieceId === object.id) {
-        tileTown.board.selectedPieceId = "";
-    } else if (tileTown.board.selectedPieceId !== object.id) {
-        tileTown.movePiece(document.getElementById(tileTown.board.selectedPieceId), object.getAttribute("data-coordinate"));
-        tileTown.removePiece(object);
-        tileTown.board.selectedPieceId = "";
+    if (tileTown.pieceToSpawn === undefined) {
+        if (tileTown.board.selectedPieceId === "") {
+            tileTown.board.selectedPieceId = object.id;
+        } else if (tileTown.board.selectedPieceId === object.id) {
+            tileTown.board.selectedPieceId = "";
+        } else if (tileTown.board.selectedPieceId !== object.id) {
+            tileTown.movePiece(document.getElementById(tileTown.board.selectedPieceId), object.getAttribute("data-coordinate"));
+            tileTown.removePiece(object);
+            tileTown.board.selectedPieceId = "";
+        }
     }
 }
 
 function clickTileHandler(object) {
     if (tileTown.pieceToSpawn !== undefined) {
         tileTown.createPiece(object.id, tileTown.pieceToSpawn[0], tileTown.pieceToSpawn[1]);
-        tileTown.pieceToSpawn = "";
+        tileTown.pieceToSpawn = undefined;
     } else {
         if (tileTown.board.selectedPieceId !== "") {
             tileTown.movePiece(document.getElementById(tileTown.board.selectedPieceId), object.id);
