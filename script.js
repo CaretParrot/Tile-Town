@@ -269,7 +269,7 @@ let tileTown = {
                         }
                     } else {
                         emptySpaces++;
-                        if (j > 7) {
+                        if (j > 7 || emptySpaces > 7) {
                             outputFENString += `${emptySpaces}/`;
                             emptySpaces = 0;
                         }
