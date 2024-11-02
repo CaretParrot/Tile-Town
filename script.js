@@ -267,6 +267,7 @@ let tileTown = {
                                 }
                                 break;
                         }
+                        allPieces.splice(k, 1);
                     } else {
                         emptySpaces++;
                         if (j > 7 || emptySpaces > 7) {
