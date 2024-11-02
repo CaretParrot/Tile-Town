@@ -214,13 +214,15 @@ let tileTown = {
         let coordinateSelector = "";
         let emptySpaces = 0;
         let allPieces = document.getElementsByClassName("piece");
+        let pieceFound = false;
         for (let i = 8; i >= 1; i--) {
             for (let j = 0; j < 8; j++) {
                 coordinateSelector = `${tileTown.numberToFile(j)}${i}`;
                 for (let k = 0; k < allPieces.length; k++) {
                     if (coordinateSelector === allPieces[k].dataset.coordinate) {
+                        pieceFound = true;
                         if (emptySpaces > 0) {
-                            outputFENString += `${emptySpaces}/`;
+                            outputFENString += `/`;
                             emptySpaces = 0;
                         }
                         switch (allPieces[k].dataset.piece) {
@@ -267,14 +269,17 @@ let tileTown = {
                                 }
                                 break;
                         }
-                        allPieces.splice(k, 1);
-                    } else {
-                        emptySpaces++;
-                        if (j > 7 || emptySpaces > 7) {
-                            outputFENString += `${emptySpaces}/`;
-                            emptySpaces = 0;
-                        }
+                        break;
                     }
+                }
+                if (pieceFound === false) {
+                    emptySpaces++;
+                    if (j > 6 || emptySpaces > 7) {
+                        outputFENString += `/${emptySpaces}`;
+                        emptySpaces = 0;
+                    }
+                } else {
+                    pieceFound = false;
                 }
             }
         }
