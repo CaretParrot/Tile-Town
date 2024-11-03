@@ -221,6 +221,10 @@ let tileTown = {
                 for (let k = 0; k < allPieces.length; k++) {
                     if (coordinateSelector === allPieces[k].dataset.coordinate) {
                         pieceFound = true;
+                        if (emptySpaces > 0) {
+                            outputFENString += `${emptySpaces}`;
+                            emptySpaces = 0;
+                        }
                         switch (allPieces[k].dataset.piece) {
                             case "rook":
                                 if (allPieces[k].dataset.color === "white") {
@@ -268,21 +272,26 @@ let tileTown = {
                         break;
                     }
                 }
+
                 if (pieceFound === false) {
                     emptySpaces++;
-                } else {
-                    pieceFound = false;
                 }
 
                 if (emptySpaces > 7) {
-                    outputFENString += `${emptySpaces}`;
-                }
-
-                if (j > 6) {
-                    outputFENString += `/`;
+                    outputFENString += `8`;
                     emptySpaces = 0;
                 }
+
+                pieceFound = false;
             }
+
+            if (emptySpaces > 0) {
+                outputFENString += `${emptySpaces}`;
+                emptySpaces = 0;
+            }
+            
+            outputFENString += `/`;
+            emptySpaces = 0;
         }
         return outputFENString;
     },
