@@ -224,6 +224,8 @@ let tileTown = {
                         if (emptySpaces > 0) {
                             outputFENString += `/`;
                             emptySpaces = 0;
+                        } else if (+(outputFENString[outputFENString.length - 1]) > 0) {
+                            outputFENString += `/`;
                         }
                         switch (allPieces[k].dataset.piece) {
                             case "rook":
