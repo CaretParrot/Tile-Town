@@ -1,13 +1,13 @@
 let tileTown = {
     board: {
-        size: document.getElementById("wrapper").offsetHeight,
-        squareSize: document.getElementById("wrapper").offsetHeight / 8,
-        pieceSize: document.getElementById("wrapper").offsetHeight / 8,
+        size: +document.getElementById("chessBoard").getBoundingClientRect().width,
+        squareSize: +document.getElementById("chessBoard").getBoundingClientRect().width / 8,
+        pieceSize: +document.getElementById("chessBoard").getBoundingClientRect().width / 8,
         piecePadding: 0,
         selectedPieceId: "",
         pieceToSpawn: undefined,
         lightSquareColor: "White",
-        darkSquareColor: "hsl(240, 50%, 50%)",
+        darkSquareColor: "var(--dark-3)",
         whitesTurn: true,
         whitesSide: true
     },
@@ -46,8 +46,8 @@ let tileTown = {
         }
     },
     updateSizing: function () {
-        tileTown.board.size = document.getElementById("wrapper").offsetHeight;
-        document.getElementById("chessBoard").setAttribute("viewBox", `0, 0, ${tileTown.board.size}, ${tileTown.board.size}`);
+        tileTown.board.size = +document.getElementById("chessBoard").getBoundingClientRect().width;
+        document.getElementById("chessBoard").setAttribute("viewBox", `0 0 ${tileTown.board.size} ${tileTown.board.size}`);
     },
     addAllPieces: function () {
         for (let i = 0; i < 8; i++) {
@@ -164,12 +164,12 @@ let tileTown = {
             switch (settingsFen[i]) {
                 case "w":
                     tileTown.whitesTurn = true;
-                    document.getElementById("turn").style.backgroundColor = "hsl(0, 0%, 90%)";
+                    document.getElementById("turn").style.backgroundColor = "var(--light-2)";
                     document.getElementById("turn").style.color = "Black";
                     document.getElementById("turn").innerHTML = "White to move...";
                     break;
                 case "b":
-                    document.getElementById("turn").style.backgroundColor = "hsl(0, 0%, 20%)";
+                    document.getElementById("turn").style.backgroundColor = "var(--dark-2)";
                     document.getElementById("turn").style.color = "White";
                     document.getElementById("turn").innerHTML = "Black to move...";
                     break;
