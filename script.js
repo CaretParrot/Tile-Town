@@ -6,15 +6,15 @@ let tileTown = {
         piecePadding: 0,
         selectedPieceId: "",
         pieceToSpawn: undefined,
-        lightSquareColor: "White",
-        darkSquareColor: "var(--dark-3)",
+        lightSquareColor: "var(--light-2)",
+        darkSquareColor: "var(--dark-2)",
         whitesTurn: true,
         whitesSide: true
     },
     createPiece: function (square, color, pieceType) {
         let family = document.getElementsByClassName(`${pieceType} ${color} piece`);
         let newId = `${color}${pieceType[0].toUpperCase()}${pieceType.slice(1)}${family.length + 1}`;
-        document.getElementById("chessBoard").innerHTML += `<image data-coordinate="${square}" data-piece="${pieceType}" data-color="${color}" class="${pieceType} ${color} piece" href="./assets/${pieceType}-${color.slice(0, 1)}.svg" id="${newId}" onmousedown="clickPieceHandler(document.getElementById('${newId}'))" width="${tileTown.board.pieceSize}" height="${tileTown.board.pieceSize}" />`;
+        document.getElementById("chessBoard").innerHTML += `<image data-coordinate="${square}" data-piece="${pieceType}" data-color="${color}" class="${pieceType} ${color} piece" style="width: ${tileTown.board.pieceSize}px; height: ${tileTown.board.pieceSize}px;" href="./assets/${pieceType}-${color.slice(0, 1)}.svg" id="${newId}" onmousedown="clickPieceHandler(document.getElementById('${newId}'))" width="${tileTown.board.pieceSize}" height="${tileTown.board.pieceSize}" />`;
         tileTown.movePiece(document.getElementById(newId), square);
     },
     movePiece: function (object, square) {
@@ -47,6 +47,9 @@ let tileTown = {
     },
     updateSizing: function () {
         tileTown.board.size = +document.getElementById("chessBoard").getBoundingClientRect().width;
+        tileTown.board.pieceSize = tileTown.board.size / 8;
+        document.getElementById("chessBoard").style.height = tileTown.board.size + "px";
+        document.getElementById("chessBoard").style.width = tileTown.board.size + "px";
         document.getElementById("chessBoard").setAttribute("viewBox", `0 0 ${tileTown.board.size} ${tileTown.board.size}`);
     },
     addAllPieces: function () {

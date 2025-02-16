@@ -10,9 +10,6 @@ textarea,
 
 body {
     grid: auto / 1fr 1fr 1fr;
-    flex-flow: row nowrap;
-    width: 100%;
-    padding: 0;
 }
 
 div {
@@ -27,9 +24,15 @@ div {
 
 #chessBoard {
     background-color: transparent;
+    padding: 0;
     aspect-ratio: 1 / 1;
+    justify-content: center;
+    align-items: center;
     align-self: center;
-    width: 100% !important;
+}
+
+svg * {
+    display: block !important;
 }
 
 #turn {
@@ -39,7 +42,8 @@ div {
 
 #sidebar {
     grid: auto / 1fr;
-    padding: 1rem;
+    width: 100%;
+    height: 100%;
 }
 
 #pieceToolbar {
@@ -50,18 +54,31 @@ div {
     height: 100%;
 }
 
-img {
+.dark img {
+    background-color: var(--dark-2);
     padding: 0;
     width: 100%;
+}
+
+.light img {
+    background-color: var(--light-2);
+    padding: 0;
+    width: 100%;
+}
+
+.pieceButton {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+button:active {
     background-color: transparent;
 }
 
-.dark,
-.dark img {
-    background-color: light-dark(var(--dark-2), var(--light-2)) !important;
-}
-
-.light,
-.light img {
-    background-color: light-dark(var(--light-2), var(--dark-2)) !important;
+#wrapper {
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
 }
