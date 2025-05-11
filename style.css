@@ -1,12 +1,9 @@
 body {
     grid: auto / 1fr 1fr 1fr;
-    width: calc(100% - 2 * var(--base-unit));
-    height: calc(100% - 2 * var(--base-unit));
 }
 
 #turn {
-    margin: 1rem;
-    padding: 1rem;
+    padding: var(--base-unit);
 }
 
 #turn {
@@ -49,7 +46,6 @@ body {
 }
 
 #wrapper {
-    width: 100%;
     grid: auto / 1fr;
 }
 
