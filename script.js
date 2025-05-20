@@ -292,7 +292,7 @@ let tileTown = {
                 outputFENString += `${emptySpaces}`;
                 emptySpaces = 0;
             }
-            
+
             outputFENString += `/`;
             emptySpaces = 0;
         }
